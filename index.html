@@ -1,528 +1,519 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <title>Jessica Vital Makeup — Maquiagem Profissional | Noivas, Madrinhas e Eventos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Maquiagem profissional com assinatura autoral. Especialista em noivas, madrinhas e produções para eventos. Reserve seu horário pelo WhatsApp.">
-  <meta name="theme-color" content="#0e0d10">
-  <meta property="og:title" content="Jessica Vital Makeup — Maquiagem Profissional">
-  <meta property="og:description" content="Assinatura autoral, acabamento de pele impecável e durabilidade real. Agende pelo WhatsApp.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop">
-  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <style>
-    /* ========== DESIGN SYSTEM (edite só estas variáveis) ========== */
-    :root{
-      --bg:#0e0d10;              /* Fundo geral (dark elegante) */
-      --panel:#141318;           /* Painéis/cards */
-      --elev:#1b1922;            /* Elevação sutil */
-      --txt:#f4f3f6;             /* Texto principal */
-      --muted:#b9b6c6;           /* Texto secundário */
-      --primary:#e9a6d1;         /* Rosa acetinado (beleza) */
-      --accent:#c6ffb3;          /* Verde-luz para micro realces */
-      --gold:#f7e6b5;            /* Dourado discreto p/ detalhes de luxo */
-      --stroke:#2a2731;          /* Bordas */
-      --ok:#9ff5c8; --warn:#ffe3a3; --error:#ffb3b3;
-      --radius:14px; --pill:999px;
-      --shadow:0 10px 30px rgba(0,0,0,.45);
-      --container:1200px;
-      --gap:28px;
-      --h1:clamp(40px, 6vw, 64px);
-      --h2:clamp(28px, 4vw, 40px);
-      --h3:clamp(20px, 2.5vw, 26px);
-      --p:clamp(16px, 1.6vw, 18px);
-      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      --serif: "Playfair Display", ui-serif, Georgia, serif;
-      --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-    }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Casarão da Beleza & Saúde — Diadema/SP | Liberte-se dos padrões, crie seu estilo</title>
+<meta name="description" content="Beleza e bem-estar com toque de casa. Cabelo, pele, corpo e unhas com atendimento atencioso e resultados reais em Diadema/SP. Agende sua avaliação no WhatsApp.">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect rx="12" width="64" height="64" fill="%23B88F5C"/><text x="50%" y="56%" text-anchor="middle" font-family="serif" font-size="22" fill="white">CB</text></svg>'>
 
-    /* Reset elegante */
-    *,*::before,*::after{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:var(--sans); color:var(--txt); background:radial-gradient(1200px 800px at 10% -20%, #1c1822 0%, transparent 60%), var(--bg);
-      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
-    }
-    img{max-width:100%; display:block; border-radius: calc(var(--radius) - 4px)}
-    a{color:inherit; text-decoration:none}
-    .container{max-width:var(--container); margin-inline:auto; padding:0 20px}
-    section{padding:70px 0; position:relative}
-    .section-title{font-size:var(--h2); margin:0 0 10px; letter-spacing:.2px}
-    .section-sub{color:var(--muted); margin:0 0 28px; max-width:760px}
+<!-- OG/Twitter básicos -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Casarão da Beleza & Saúde — Diadema/SP">
+<meta property="og:description" content="Liberte-se dos padrões, crie seu estilo. +10 mil atendimentos. Tratamento exclusivo.">
+<meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 width=%271200%27 height=%27630%27><rect width=%27100%25%27 height=%27100%25%27 fill=%27%23FAF7F2%27/><text x=%2750%25%27 y=%2755%25%27 text-anchor=%27middle%27 font-family=%27serif%27 font-size=%2746%27 fill=%27%231C1C1C%27>Casarão da Beleza &amp; Saúde</text></svg>'>
+<meta name="twitter:card" content="summary_large_image">
 
-    /* Header */
-    header{
-      position:sticky; top:0; z-index:50; background:rgba(14,13,16,.6); backdrop-filter: blur(12px);
-      border-bottom:1px solid var(--stroke); transition: .3s ease;
-    }
-    .nav{display:flex; align-items:center; gap:20px; height:64px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
-    .brand .logo{
-      width:36px; height:36px; border-radius:10px; display:grid; place-items:center;
-      background: conic-gradient(from 210deg, var(--primary), #fff0, var(--gold));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-    .brand small{color:var(--muted); display:block; font-size:12px; letter-spacing:.6px}
-    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:16px; flex-wrap:wrap}
-    nav a{padding:10px 14px; border-radius:10px; border:1px solid transparent}
-    nav a:hover{border-color:var(--stroke); background:rgba(255,255,255,.03)}
-    .nav-cta{margin-left:auto; display:flex; gap:12px}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:var(--pill);
-      border:1px solid var(--stroke); background:linear-gradient(180deg, #1c1a22, #131018); cursor:pointer; font-weight:600;
-      box-shadow:0 1px 0 rgba(255,255,255,.06) inset; transition:.2s ease;
-    }
-    .btn:hover{transform: translateY(-1px)}
-    .btn.primary{
-      border-color:rgba(255,255,255,.08);
-      background:
-        radial-gradient(600px 180px at 0% 0%, rgba(233,166,209,.14), transparent 60%),
-        linear-gradient(180deg, #2a2430, #19141e);
-      box-shadow: 0 8px 26px rgba(233,166,209,.18);
-    }
-    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px dashed var(--stroke); border-radius:var(--pill); color:var(--muted); font-size:13px}
+<style>
+/* ===================== */
+/* TOKENS (do JSON)      */
+/* ===================== */
+:root{
+  /* Brand scale */
+  --brand-50:#FAF7F2;--brand-100:#F3EADF;--brand-200:#E7D7C1;--brand-300:#D8C0A0;--brand-400:#C8A97F;
+  --brand-500:#B88F5C;--brand-600:#9A7443;--brand-700:#7B5C31;--brand-800:#5E4523;--brand-900:#3E2E16;
 
-    /* Hero */
-    .hero{padding:96px 0 56px}
-    .grid{
-      display:grid; gap:var(--gap);
-      grid-template-columns: 1.1fr .9fr;
-    }
-    .hero .title{font-size:var(--h1); line-height:1.1; margin:10px 0 14px; font-weight:800}
-    .hero .lead{font-size:clamp(18px, 1.8vw, 20px); color:var(--muted)}
-    .hero .media{
-      position:relative; min-height:420px; border-radius:var(--radius); overflow:hidden;
-      background:linear-gradient(120deg, #231d26, #151219); border:1px solid var(--stroke);
-      box-shadow: var(--shadow);
-    }
-    .taglist{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px}
-    .tag{padding:8px 12px; border:1px solid var(--stroke); border-radius:var(--pill); color:#e8e6ef; font-size:13px; background:rgba(255,255,255,.02)}
-    .hero .floating{
-      position:absolute; right:-20px; bottom:-20px; width:220px; height:220px; border-radius:50%;
-      background: radial-gradient(60% 60% at 40% 40%, rgba(233,166,209,.35), rgba(233,166,209,.06));
-      filter: blur(16px);
-    }
+  --ink:#1C1C1C; --ink-muted:#525252;
+  --cream:#FFF9F3; --accent:#36524C; --success:#0E9F6E;
 
-    /* Cards generics */
-    .cards{display:grid; gap:var(--gap); grid-template-columns: repeat(12, 1fr)}
-    .card{
-      grid-column: span 4; background:linear-gradient(180deg, #19161f, #14131a);
-      border:1px solid var(--stroke); border-radius:var(--radius); padding:20px; box-shadow: var(--shadow);
-    }
-    .card h3{margin:6px 0 6px; font-size:var(--h3)}
-    .card p{color:var(--muted); margin:0}
-    .chip{display:inline-block; padding:6px 10px; border-radius:var(--pill); font-size:12px; border:1px solid var(--stroke); color:var(--muted)}
+  --radius-sm:8px; --radius-md:16px; --radius-xl:24px; --radius-pill:999px;
+  --shadow-sm:0 2px 10px rgba(0,0,0,.06); --shadow-md:0 8px 30px rgba(0,0,0,.08); --glow:0 0 0 6px rgba(184,143,92,.15);
+  --g: clamp(1rem, 1vw + .5rem, 1.25rem); /* ritmo */
+  --container:1200px;
+  --bg:#FFFFFF; --bg-alt:#F3EADF22;
+}
+@media(prefers-color-scheme:dark){
+  :root{ --bg:#0F1011; --bg-alt:#141516; --ink:#F1F1F1; --ink-muted:#BEBEBE; --shadow-md:0 8px 30px rgba(0,0,0,.5) }
+}
+*{box-sizing:border-box} html,body{margin:0;padding:0}
+body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; text-rendering:optimizeLegibility}
+img{max-width:100%; height:auto; display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid rgba(184,143,92,.5); outline-offset:2px}
+::selection{background:var(--brand-200); color:var(--ink)}
+.container{width:min(var(--container),92%); margin-inline:auto}
 
-    /* Portfolio grid */
-    .masonry{columns: 3 280px; column-gap:16px}
-    .masonry .item{break-inside:avoid; margin-bottom:16px; position:relative}
-    .masonry .item img{width:100%}
-    .zoom{position:absolute; right:10px; bottom:10px; background:rgba(0,0,0,.4); padding:8px 10px; border-radius:10px; font-size:12px}
+/* Prova top bar */
+.proofbar{display:flex; justify-content:center; gap:var(--g); padding:8px 12px; background:var(--brand-50); border-bottom:1px solid rgba(0,0,0,.06)}
+.proofbar .dot{width:6px;height:6px;border-radius:999px;background:var(--brand-500);align-self:center}
 
-    /* Before/After slider card */
-    .ba{position:relative; overflow:hidden; border-radius:var(--radius); border:1px solid var(--stroke)}
-    .ba img{display:block; width:100%; height:auto}
-    .ba .after{position:absolute; inset:0; clip-path: inset(0 50% 0 0)}
-    .ba input[type="range"]{position:absolute; inset:0; width:100%; height:100%; opacity:0}
-    .ba .handle{position:absolute; top:0; bottom:0; width:3px; left:50%; transform:translateX(-50%); background:linear-gradient(var(--gold), #fff0); box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+/* Header */
+.header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:color-mix(in oklab, var(--bg) 92%, transparent); border-bottom:1px solid rgba(0,0,0,.06)}
+.header-inner{min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:var(--g)}
+.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+.logo{width:40px;height:40px;border-radius:12px; background:var(--brand-500); color:#fff; display:grid;place-items:center; font-weight:700}
+.brandname{font-family:"Playfair Display", ui-serif, Georgia, serif; font-size:1.1rem}
+.nav ul{display:flex; gap:12px; list-style:none; margin:0; padding:0; align-items:center}
+.nav a{padding:8px 10px; text-decoration:none; border-radius:10px}
+.nav a:hover{background:rgba(0,0,0,.06)}
+.burger{display:none; border:1px solid rgba(0,0,0,.08); background:transparent; padding:8px 12px; border-radius:10px}
+.nav .cta{display:none}
 
-    /* Timeline process */
-    .timeline{display:grid; gap:18px}
-    .step{display:grid; grid-template-columns: 46px 1fr; gap:16px; align-items:flex-start}
-    .step .dot{width:46px; height:46px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(180deg, #2b2630, #18141d); border:1px solid var(--stroke)}
-    .step p{margin:0; color:var(--muted)}
+/* Buttons */
+.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:var(--radius-pill); text-decoration:none; border:1px solid rgba(0,0,0,.06); font-weight:600}
+.btn--primary{background:var(--brand-700); border-color:transparent; color:#fff}
+.btn--ghost{background:transparent}
+.btn--xl{padding:16px 22px; font-size:1.05rem}
 
-    /* Testimonials carousel */
-    .carousel{display:grid; grid-auto-flow:column; grid-auto-columns:minmax(280px,1fr); gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px}
-    .carousel .t{scroll-snap-align:start; background:linear-gradient(180deg,#19161f,#131118); padding:20px; border:1px solid var(--stroke); border-radius:var(--radius)}
-    .stars{letter-spacing:2px; color:var(--gold)}
+/* Sections */
+.section{padding:72px 0}
+.section--alt{background:var(--brand-50)}
+.eyebrow{text-transform:uppercase; letter-spacing:.12em; color:var(--brand-700); font-size:.8rem}
+h1,h2{font-family:"Playfair Display", ui-serif, Georgia, serif}
+h2{font-size: clamp(1.7rem, 1.1rem + 2vw, 2.4rem); margin:.2em 0}
+.lead{font-size:1.12rem; color:var(--ink-muted)}
 
-    /* Pricing */
-    .pricing{display:grid; gap:var(--gap); grid-template-columns: repeat(12, 1fr)}
-    .plan{grid-column: span 4; background:linear-gradient(180deg,#1f1a24,#15131b); border:1px solid var(--stroke); border-radius:var(--radius); padding:22px}
-    .price{font-family:var(--serif); font-size:34px; margin:10px 0}
-    .plan ul{margin:0; padding-left:18px; color:var(--muted)}
-    .flag{display:inline-flex; gap:8px; align-items:center; font-size:12px; padding:6px 10px; border-radius:var(--pill); background:rgba(247,230,181,.08); border:1px solid rgba(247,230,181,.24); color:var(--gold)}
+/* Hero */
+.hero{padding:40px 0 16px}
+.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
+.badges{display:flex; gap:10px; flex-wrap:wrap; padding:0; margin:12px 0 0; list-style:none}
+.badges li{background:var(--brand-50); border:1px solid rgba(0,0,0,.06); padding:8px 12px; border-radius:999px}
+.hero-media{border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md)}
 
-    /* FAQ */
-    .faq{display:grid; gap:12px}
-    .qa{border:1px solid var(--stroke); border-radius:var(--radius); overflow:hidden}
-    .qa button{
-      width:100%; text-align:left; padding:16px 18px; background:linear-gradient(180deg,#1c1820,#15131b); color:var(--txt); border:0; font-weight:600; cursor:pointer;
-    }
-    .qa div{padding:0 18px 16px; color:var(--muted); display:none}
-    .qa.open div{display:block}
+/* Cards & grids */
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:var(--g)}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--g)}
+.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:var(--g)}
+.card{border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-md); background:#fff; padding:16px; box-shadow:var(--shadow-sm)}
+.kpis{display:flex; gap:12px; margin-top:8px}
+.kpis span{background:#fff; border:1px solid rgba(0,0,0,.06); padding:6px 10px; border-radius:999px; font-weight:600}
 
-    /* Contact */
-    .contact{
-      display:grid; gap:var(--gap);
-      grid-template-columns: 1.1fr .9fr;
-    }
-    form{
-      background:linear-gradient(180deg,#1d1821,#14121a); border:1px solid var(--stroke); border-radius:var(--radius); padding:18px; display:grid; gap:12px
-    }
-    label{font-size:13px; color:var(--muted)}
-    input,textarea,select{
-      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke); background:#0f0d13; color:var(--txt)
-    }
-    textarea{min-height:110px; resize:vertical}
-    .map{
-      height:100%; min-height:320px; border:1px dashed var(--stroke); border-radius:var(--radius); display:grid; place-items:center; color:var(--muted)
-    }
+/* Before/After slider */
+.ba{position:relative; overflow:hidden; border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); background:#000}
+.ba img{width:100%}
+.ba .after{position:absolute; inset:0; clip-path: inset(0 50% 0 0)}
+.ba input[type="range"]{position:absolute; inset-inline:0; bottom:12px; margin-inline:auto; width:min(480px,60%); appearance:none; height:4px; background:rgba(255,255,255,.7); border-radius:999px}
+.ba input[type="range"]::-webkit-slider-thumb{appearance:none; width:18px; height:18px; border-radius:999px; background:var(--brand-700); border:2px solid #fff; box-shadow:0 0 0 3px rgba(184,143,92,.25)}
 
-    /* Footer */
-    footer{padding:34px 0; color:var(--muted); border-top:1px solid var(--stroke)}
-    .foot{display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+/* Before/After gallery */
+.gallery{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
+.thumb{padding:0;border:0;background:none;cursor:zoom-in}
+.thumb img{border-radius:var(--radius-md); border:1px solid rgba(0,0,0,.06); aspect-ratio:1/1; object-fit:cover}
+.disclaimer{color:var(--ink-muted); font-size:.9rem; margin-top:8px}
 
-    /* Utilities */
-    .muted{color:var(--muted)}
-    .row{display:flex; gap:10px; flex-wrap:wrap}
-    .pill{padding:6px 10px; border:1px solid var(--stroke); border-radius:var(--pill); color:var(--muted); font-size:12px}
-    .reveal{opacity:0; transform:translateY(8px); transition:.5s ease}
-    .reveal.visible{opacity:1; transform:none}
+/* Testimonials */
+.carousel{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px}
+.carousel blockquote{scroll-snap-align:start; min-width:78%; margin:0; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-md); padding:16px}
+.carousel footer{color:var(--ink-muted); margin-top:6px}
 
-    /* Responsive */
-    @media (max-width:980px){
-      .grid, .contact{grid-template-columns:1fr}
-      .cards .card, .plan{grid-column: span 12}
-      .nav{height:auto; padding:10px 0}
-      .hero{padding-top:64px}
-    }
-  </style>
+/* FAQ */
+.faq details{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-md); padding:12px; margin-bottom:10px}
+.faq summary{cursor:pointer; font-weight:600}
+
+/* Map / contato */
+.map{border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-xl); overflow:hidden}
+
+/* Footer */
+.footer{border-top:1px solid rgba(0,0,0,.06); padding:28px 0; background:#fff}
+.footer .cols{display:grid; grid-template-columns:2fr 1fr 1fr; gap:var(--g)}
+
+/* Lightbox dialog */
+dialog#lightbox{border:0; padding:0; background:transparent}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+#lightbox img{max-width:min(92vw,980px); max-height:85vh; border-radius:var(--radius-md)}
+.lb-close{position:fixed; top:18px; right:18px; border:0; width:44px; height:44px; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:26px; cursor:pointer}
+
+/* Floating WhatsApp */
+.float-zap{position:fixed; right:16px; bottom:16px; z-index:60}
+.float-zap .btn{border-radius:999px}
+
+/* Responsive */
+@media(max-width:1024px){
+  .hero-grid{grid-template-columns:1fr}
+  .grid-3,.grid-4{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .burger{display:inline-flex}
+  .nav ul{position:fixed; inset:68px 0 auto 0; background:var(--bg); padding:10px 4vw; transform:translateY(-120%); transition:transform .25s ease; flex-direction:column; align-items:flex-start; gap:8px; border-bottom:1px solid rgba(0,0,0,.06)}
+  .nav ul.open{transform:translateY(0)}
+  .nav .cta{display:flex; gap:8px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .carousel blockquote{min-width:90%}
+}
+</style>
 </head>
 <body>
-  <!-- =========================================================
-       TODO: Ajuste os campos abaixo com dados reais da cliente
-       - NOME: "Jessica Vital" (ou variação preferida da marca)
-       - INSTAGRAM: @jessicavitalmakeup
-       - WHATSAPP: preencha "phone" no link wa.me (apenas dígitos)
-       - ENDEREÇO / CIDADE: caso atenda em estúdio e a domicílio
-       - FOTOS: substitua URLs de Unsplash por imagens reais
-       ========================================================= -->
 
-  <!-- Header -->
-  <header id="topo">
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true">✨</div>
-        <div>
-          <strong>Jessica&nbsp;Vital</strong>
-          <small>Makeup Artist</small>
-        </div>
-      </div>
-      <nav aria-label="Principal">
-        <ul class="row">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#proposta">Assinatura</a></li>
-          <li><a href="#portfolio">Portfólio</a></li>
-          <li><a href="#servicos">Serviços</a></li>
-          <li><a href="#processo">Processo</a></li>
-          <li><a href="#depoimentos">Depoimentos</a></li>
-          <li><a href="#precos">Preços</a></li>
-          <li><a href="#faq">FAQ</a></li>
-          <li><a href="#contato">Contato</a></li>
+<a href="#conteudo" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Pular para conteúdo</a>
+
+<!-- Prova superior -->
+<div class="proofbar">
+  <span>+10 mil atendimentos</span><span class="dot"></span>
+  <span>Tratamento exclusivo</span><span class="dot"></span>
+  <span>Referência em Diadema</span>
+</div>
+
+<!-- Header -->
+<header class="header" aria-label="Cabeçalho do site">
+  <div class="container header-inner">
+    <a href="#hero" class="brand">
+      <span class="logo" aria-hidden>CB</span>
+      <span class="brandname">Casarão da Beleza &amp; Saúde</span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <button class="burger" aria-expanded="false" aria-controls="menu">Menu ☰</button>
+      <ul id="menu">
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#exclusivo">Exclusivo</a></li>
+        <li><a href="#provas">Provas</a></li>
+        <li><a href="#antes">Antes &amp; Depois</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li class="cta"><a id="zapTop" class="btn btn--primary" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">WhatsApp</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="conteudo">
+  <!-- D1 HERO -->
+  <section id="hero" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">R. Itaguaré, 85 — Centro, Diadema/SP</p>
+        <h1>Liberte-se dos padrões, crie seu estilo</h1>
+        <p class="lead">Beleza e bem-estar com toque de casa: do cabelo à pele, com atendimento atencioso e resultados reais.</p>
+        <p>
+          <a id="zapHero" class="btn btn--primary btn--xl" target="_blank" rel="noopener">Falar no WhatsApp</a>
+          <a href="#servicos" class="btn btn--ghost">Ver serviços</a>
+        </p>
+        <ul class="badges" aria-label="Diferenciais">
+          <li>Estilo próprio</li><li>Autoestima</li><li>Cuidado de verdade</li><li>Resultado</li>
         </ul>
-      </nav>
-      <div class="nav-cta">
-        <a class="btn" href="https://www.instagram.com/jessicavitalmakeup" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn primary" id="whatsHeader" href="#">Agendar no WhatsApp</a>
       </div>
-    </div>
-  </header>
-
-  <!-- Hero (Seção 1) -->
-  <section id="inicio" class="hero">
-    <div class="container">
-      <span class="badge">Agenda limitada • acabamento de pele impecável</span>
-      <div class="grid">
-        <div class="copy">
-          <h1 class="title reveal">Beleza real, <em style="font-family:var(--serif); font-weight:700; color:var(--gold)">assinatura autoral</em>.</h1>
-          <p class="lead reveal">Maquiagem profissional para <strong>noivas</strong>, <strong>madrinhas</strong> e <strong>eventos</strong> — foco em pele luminosa, olhos que falam e durabilidade de horas.</p>
-          <div class="taglist reveal">
-            <span class="tag">Noivas 👰</span>
-            <span class="tag">Madrinhas 💐</span>
-            <span class="tag">Eventos ✨</span>
-            <span class="tag">Editorial 🎞️</span>
-            <span class="tag">A domicílio / Estúdio</span>
-          </div>
-          <div class="row reveal">
-            <a class="btn primary" id="whatsHero" href="#">Quero reservar</a>
-            <a class="btn" href="#portfolio">Ver portfólio</a>
-          </div>
-          <p class="muted" style="margin-top:12px">Atendimento sob consulta. Datas de noiva esgotam com antecedência.</p>
-        </div>
-        <div class="media reveal" aria-label="Galeria destaque">
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Maquiagem de noiva — pele luminosa e olhar marcante" style="width:100%; height:100%; object-fit:cover">
-          <div class="floating" aria-hidden="true"></div>
-        </div>
-      </div>
+      <figure class="hero-media">
+        <!-- Placeholder: troque por banner real (WEBP) -->
+        <img alt="Editorial clean de beleza acolhedora" loading="eager" decoding="async"
+          src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='1100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23FFF9F3'/><stop offset='100%' stop-color='%23E7D7C1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='40' fill='%231C1C1C'>Casarão da Beleza &amp; Saúde</text></svg>">
+      </figure>
     </div>
   </section>
 
-  <!-- Assinatura / Proposta de Valor (Seção 2) -->
-  <section id="proposta">
+  <!-- D2 VALOR (4 colunas) -->
+  <section id="servicos" class="section section--alt">
     <div class="container">
-      <h2 class="section-title reveal">O que te torna única não se copia.</h2>
-      <p class="section-sub reveal">Cada produção nasce de uma leitura sensível do seu rosto, estilo e ocasião. A assinatura da Jessica equilibra <strong>naturalidade</strong> com <strong>impacto</strong>: você, só que memorável.</p>
-      <div class="cards">
-        <article class="card reveal">
-          <span class="chip">Pele</span>
-          <h3>Acabamento impecável</h3>
-          <p>Textura leve, glow controlado e resistência a lágrimas, abraços e horas de pista.</p>
-        </article>
-        <article class="card reveal">
-          <span class="chip">Olhos</span>
-          <h3>Olhar que fala</h3>
-          <p>Do soft glam ao marcante — desenho respeita formato dos olhos e a identidade da cliente.</p>
-        </article>
-        <article class="card reveal">
-          <span class="chip">Durabilidade</span>
-          <h3>Pronta até o fim</h3>
-          <p>Técnica + produtos de alta performance para durar da cerimônia à última foto.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfólio (Seção 3) -->
-  <section id="portfolio">
-    <div class="container">
-      <h2 class="section-title reveal">Portfólio</h2>
-      <p class="section-sub reveal">Seleção curada de noivas, madrinhas e produções especiais.</p>
-      <div class="masonry">
-        <!-- TODO: troque por imagens reais -->
-        <a class="item reveal" href="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=1400&auto=format&fit=crop" data-full>
-          <img src="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=800&auto=format&fit=crop" alt="Maquiagem noiva 1">
-          <span class="zoom">Ampliar</span>
-        </a>
-        <a class="item reveal" href="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" data-full>
-          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop" alt="Maquiagem noiva 2">
-          <span class="zoom">Ampliar</span>
-        </a>
-        <a class="item reveal" href="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" data-full>
-          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop" alt="Editorial 1">
-          <span class="zoom">Ampliar</span>
-        </a>
-        <!-- Adicione quantas quiser -->
-      </div>
-    </div>
-  </section>
-
-  <!-- Antes & Depois (Seção 4) -->
-  <section id="antesdepois">
-    <div class="container">
-      <h2 class="section-title reveal">Antes & Depois</h2>
-      <p class="section-sub reveal">Transparência de resultado — deslize para comparar.</p>
-      <div class="cards">
-        <div class="card reveal">
-          <div class="ba">
-            <!-- TODO: imagens reais antes/depois do mesmo rosto -->
-            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="Depois">
-            <img class="after" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" alt="Antes">
-            <div class="handle" aria-hidden="true"></div>
-            <input type="range" min="0" max="100" value="50" aria-label="Controle de comparação">
-          </div>
-        </div>
-        <div class="card reveal">
-          <div class="ba">
-            <img src="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=1400&auto=format&fit=crop" alt="Depois">
-            <img class="after" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="Antes">
-            <div class="handle"></div>
-            <input type="range" min="0" max="100" value="50" aria-label="Controle de comparação">
-          </div>
-        </div>
-        <div class="card reveal">
-          <div class="ba">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" alt="Depois">
-            <img class="after" src="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=1400&auto=format&fit=crop" alt="Antes">
-            <div class="handle"></div>
-            <input type="range" min="0" max="100" value="50" aria-label="Controle de comparação">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços (Seção 5) -->
-  <section id="servicos">
-    <div class="container">
-      <h2 class="section-title reveal">Serviços</h2>
-      <p class="section-sub reveal">Atendimento sob reserva — no estúdio ou a domicílio.</p>
-      <div class="cards">
-        <article class="card reveal">
-          <h3>Noiva — Prova + Dia</h3>
-          <p>Ensaio prévio, definição de look, teste de durabilidade e produção completa no grande dia.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Madrinhas & Convidadas</h3>
-          <p>Soft glam a glam completo, conforme horário, local e paleta do evento.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Editorial & Ensaios</h3>
-          <p>Criação autoral para fotos/filmes, direção de beleza e continuidade de cena.</p>
-        </article>
-      </div>
-      <div class="row" style="margin-top:16px">
-        <span class="pill">Airbrush (sob consulta)</span>
-        <span class="pill">Equipe para cabelo (sob consulta)</span>
-        <span class="pill">Atendimento em outras cidades</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Diferenciais (Seção 6) -->
-  <section id="diferenciais">
-    <div class="container">
-      <h2 class="section-title reveal">Diferenciais</h2>
-      <div class="cards">
-        <article class="card reveal">
-          <h3>Leitura de rosto</h3>
-          <p>Análise de proporções, textura de pele e expressividade para um resultado que “é você”.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Curadoria de produtos</h3>
-          <p>Somente linhas de alta performance e hipoalergênicas quando necessário.</p>
-        </article>
-        <article class="card reveal">
-          <h3>Roteiro de agenda</h3>
-          <p>Planejamento por minuto no dia do evento para zero estresse e máxima pontualidade.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Processo (Seção 7) -->
-  <section id="processo">
-    <div class="container">
-      <h2 class="section-title reveal">Como funciona</h2>
-      <div class="timeline">
-        <div class="step reveal">
-          <div class="dot">1</div>
-          <div>
-            <h3>Brief rápido pelo WhatsApp</h3>
-            <p>Você envia data, local, referências e necessidades especiais.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <div class="dot">2</div>
-          <div>
-            <h3>Proposta & reserva</h3>
-            <p>Confirmação de valores/horários e sinal para garantir a data.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <div class="dot">3</div>
-          <div>
-            <h3>Prova (noivas)</h3>
-            <p>Testamos pele/olhos/batom, fotografamos em luz natural, fazemos ajustes.</p>
-          </div>
-        </div>
-        <div class="step reveal">
-          <div class="dot">4</div>
-          <div>
-            <h3>Grande dia</h3>
-            <p>Execução com tempo de respiro, entrega impecável e kit retoque.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Depoimentos (Seção 8) -->
-  <section id="depoimentos">
-    <div class="container">
-      <h2 class="section-title reveal">O que falam</h2>
-      <div class="carousel">
-        <!-- TODO: substitua por depoimentos reais -->
-        <article class="t">
-          <div class="stars">★★★★★</div>
-          <p>“Chorei, abracei, dancei e a pele ficou perfeita até o fim. Nunca me senti tão eu.”</p>
-          <p class="muted">— L. Martins (noiva)</p>
-        </article>
-        <article class="t">
-          <div class="stars">★★★★★</div>
-          <p>“Pontual, gentil e extremamente técnica. Jessica entende de iluminação e foto.”</p>
-          <p class="muted">— A. Duarte (fotógrafa)</p>
-        </article>
-        <article class="t">
-          <div class="stars">★★★★★</div>
-          <p>“Soft glam que valorizou meu formato de rosto. Recebi mil elogios.”</p>
-          <p class="muted">— B. Souza (madrinha)</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Agenda / CTA intermédio (Seção 9) -->
-  <section id="agenda">
-    <div class="container">
-      <h2 class="section-title reveal">Quer sua data garantida?</h2>
-      <p class="section-sub reveal">Clique abaixo e envie sua data/local. Se estiver livre, já reservamos. Se não, indico alternativas.</p>
-      <div class="row">
-        <a class="btn primary" id="whatsAgenda" href="#">Verificar disponibilidade</a>
-        <a class="btn" href="#precos">Ver opções</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Sobre (Seção 10) -->
-  <section id="sobre">
-    <div class="container">
-      <h2 class="section-title reveal">Sobre a artista</h2>
-      <div class="grid">
-        <div class="reveal">
-          <!-- TODO: foto real da profissional -->
-          <img src="https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?q=80&w=1200&auto=format&fit=crop" alt="Jessica Vital — Makeup Artist">
-        </div>
-        <div class="reveal">
-          <p>Sou a <strong>Jessica</strong>, maquiadora com foco em realçar seu traço natural. Minha assinatura é pele de <em>acabamento impecável</em>, olhos que traduzem sua essência e escolhas que respeitam sua história e ocasião.</p>
-          <p class="muted">Atendo em estúdio e a domicílio. Em noivas, conduzo prova com fotografia em luz natural e roteiro de dia para garantia total.</p>
-          <div class="row">
-            <span class="pill">Pele glow controlado</span>
-            <span class="pill">Soft glam & clássico</span>
-            <span class="pill">Produtos hipoalergênicos</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Preços (Seção 11) -->
-  <section id="precos">
-    <div class="container">
-      <h2 class="section-title reveal">Planos & valores</h2>
-      <p class="section-sub reveal">Valores podem variar conforme deslocamento, horário e complexidade.</p>
-      <div class="pricing">
-        <article class="plan reveal">
-          <span class="flag">Mais requisitado</span>
-          <h3>Noiva Completo</h3>
-          <div class="price">R$ <span data-price="noiva">TODO</span></div>
+      <h2>Do cabelo à pele — tudo em um só lugar</h2>
+      <p class="lead">Cardápio em linguagem de resultado. Sem jargão.</p>
+      <div class="grid-4">
+        <article class="card">
+          <h3>Cabelo</h3>
           <ul>
-            <li>Prova + registro em foto</li>
-            <li>Skin prep + maquiagem completa</li>
-            <li>Kit retoque e assistência</li>
+            <li>Corte, cor e tratamento</li>
+            <li>Cronograma personalizado</li>
+            <li>Finalização com brilho</li>
           </ul>
-          <div class="row" style="margin-top:12px">
-            <a class="btn primary" id="whatsNoiva" href="#">Quero esse</a>
-          </div>
         </article>
-        <article class="plan reveal">
-          <h3>Madrinha</h3>
-          <div class="price">R$ <span data-price="madrinha">TODO</span></div>
+        <article class="card">
+          <h3>Face</h3>
           <ul>
-            <li>Look personalizado (soft glam a glam)</li>
-            <li>Pele durável, olhos com técnica</li>
+            <li>Limpeza de pele</li>
+            <li>Peelings e hidratações</li>
+            <li>Sobrancelhas e cílios</li>
           </ul>
-          <div class="row" style="margin-top:12px">
-            <a class="btn" id="whatsMadrinha" href="#">Reservar</a>
-          </div>
         </article>
-        <article class="plan reveal">
-          <h3>Editorial / Ensaio</h3>
-          <div class="price">Sob consulta</div>
+        <article class="card">
+          <h3>Corpo</h3>
           <ul>
-            <li>Direção de beleza</li>
-            <li>Suporte em set e continuidade</li>
+            <li>Criolipólise e modeladoras</li>
+            <li>Drenagem e bem-estar</li>
+            <li>Protocolos combinados</li>
           </ul>
-          <div
+        </article>
+        <article class="card">
+          <h3>Unhas</h3>
+          <ul>
+            <li>Manicure e pedicure</li>
+            <li>Spa das mãos e pés</li>
+            <li>Acabamento impecável</li>
+          </ul>
+        </article>
+      </div>
+      <div class="kpis"><span>+10k atendimentos</span><span>Equipe especializada</span><span>Protocolos responsáveis</span></div>
+    </div>
+  </section>
+
+  <!-- D3 TRATAMENTO EXCLUSIVO (texto + slider) -->
+  <section id="exclusivo" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>Tratamento Exclusivo</h2>
+        <p class="lead">Avaliação atenciosa + combinação de técnicas para um plano só seu.</p>
+        <ul>
+          <li>Avaliação personalizada sem custo</li>
+          <li>Combinação segura de técnicas</li>
+          <li>Acompanhamento e manutenção</li>
+        </ul>
+        <p><a id="zapExclusivo" class="btn btn--primary" target="_blank" rel="noopener">Quero minha avaliação</a></p>
+      </div>
+      <div>
+        <!-- Slider Antes/Depois -->
+        <div class="ba" aria-label="Comparador antes e depois">
+          <img id="baBefore" alt="Antes — cabelo/pele" loading="lazy"
+               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='640'><rect width='100%' height='100%' fill='%23E7D7C1'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='34' fill='%231C1C1C'>Antes</text></svg>">
+          <div id="baAfterWrap" class="after">
+            <img id="baAfter" alt="Depois — resultado natural" loading="lazy"
+                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='640'><rect width='100%' height='100%' fill='%23F3EADF'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='34' fill='%231C1C1C'>Depois</text></svg>">
+          </div>
+          <input id="baRange" type="range" min="0" max="100" value="50" aria-label="Deslize para comparar">
+        </div>
+        <div class="kpis" style="margin-top:10px"><span>Conforto primeiro</span><span>Ética profissional</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D4 PROVAS (bullets) -->
+  <section id="provas" class="section section--alt">
+    <div class="container grid-3">
+      <article class="card"><h3>+10 mil atendimentos</h3><p>Processos maduros e olhar humano.</p></article>
+      <article class="card"><h3>Profissionais especializados</h3><p>Cabelo, estética facial/corporal, unhas e bem-estar.</p></article>
+      <article class="card"><h3>Protocolos responsáveis</h3><p>Sem prometer o impossível. Resultado natural.</p></article>
+    </div>
+  </section>
+
+  <!-- D5 ANTES & DEPOIS RESPONSÁVEL (grid + lightbox) -->
+  <section id="antes" class="section">
+    <div class="container">
+      <h2>Antes &amp; Depois — responsável</h2>
+      <p class="lead">Ângulos e luz consistentes. Autorização de imagem. Sem sensacionalismo.</p>
+      <ul class="gallery" role="list">
+        <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23E7D7C1'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='46' fill='%231C1C1C'>Pele</text></svg>"><img alt="Caso pele — viço e textura" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><rect width='100%' height='100%' fill='%23E7D7C1'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='24' fill='%231C1C1C'>Pele</text></svg>"></button></li>
+        <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23F3EADF'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='46' fill='%231C1C1C'>Cabelo</text></svg>"><img alt="Caso cabelo — cor e brilho" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><rect width='100%' height='100%' fill='%23F3EADF'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='24' fill='%231C1C1C'>Cabelo</text></svg>"></button></li>
+        <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23FAF7F2'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='46' fill='%231C1C1C'>Brows</text></svg>"><img alt="Caso sobrancelhas — harmonia" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><rect width='100%' height='100%' fill='%23FAF7F2'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='24' fill='%231C1C1C'>Brows</text></svg>"></button></li>
+      </ul>
+      <p class="disclaimer">Resultados variam conforme avaliação individual. Siga preparo e pós indicados.</p>
+      <dialog id="lightbox" aria-label="Visualização de imagem"><button class="lb-close" aria-label="Fechar">×</button><img id="lightboxImg" alt=""></dialog>
+    </div>
+  </section>
+
+  <!-- D6 OFERTA PRIMEIRA VISITA -->
+  <section id="oferta" class="section section--alt">
+    <div class="container grid-2">
+      <div class="card">
+        <h2>Agende sua avaliação sem custo</h2>
+        <p class="lead">Te ouvimos, indicamos e começamos do jeito certo.</p>
+        <p><a id="zapOferta" class="btn btn--primary btn--xl" target="_blank" rel="noopener">Chamar no WhatsApp</a></p>
+        <small class="disclaimer">Sem pressão. Só o que faz sentido para você.</small>
+      </div>
+      <figure class="card">
+        <img alt="Ambiente acolhedor do Casarão" loading="lazy"
+             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='640'><rect width='100%' height='100%' fill='%23D8C0A0'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='34' fill='%231C1C1C'>Primeira Visita</text></svg>">
+      </figure>
+    </div>
+  </section>
+
+  <!-- D7 DEPOIMENTOS -->
+  <section id="depoimentos" class="section">
+    <div class="container">
+      <h2>O que as clientes dizem</h2>
+      <div class="carousel" aria-label="Depoimentos">
+        <blockquote>“Voltei a me reconhecer no espelho sem filtros.”<footer>— Ana M., 34</footer></blockquote>
+        <blockquote>“Cabelo com brilho natural, do jeitinho que eu queria.”<footer>— Camila P.</footer></blockquote>
+        <blockquote>“Avaliação honesta e resultado consistente.”<footer>— Renata S.</footer></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- D8 FAQ (SEO local) -->
+  <section id="faq" class="section section--alt">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq">
+        <details><summary>Preciso de avaliação?</summary><p>Sim — é a base do nosso tratamento exclusivo.</p></details>
+        <details><summary>Formas de pagamento?</summary><p>Cartão, Pix e parcelamento em serviços selecionados.</p></details>
+        <details><summary>Onde ficam?</summary><p>R. Itaguaré, 85 — Centro, Diadema/SP.</p></details>
+      </div>
+      <p><a id="zapFAQ" class="btn btn--primary" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- D9 ONDE ESTAMOS (mapa) -->
+  <section id="onde" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>Onde estamos</h2>
+        <p class="lead">R. Itaguaré, 85 — Centro, Diadema/SP — 09910-360</p>
+        <p>Estacionamento próximo • Acesso fácil</p>
+        <p>
+          <a id="mapsLink" class="btn btn--ghost" target="_blank" rel="noopener">Ver no mapa</a>
+          <a id="zapOnde" class="btn btn--primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </p>
+      </div>
+      <figure class="map">
+        <img alt="Mapa estático aproximado do endereço" loading="lazy"
+             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='600'><rect width='100%' height='100%' fill='%23FAF7F2'/><rect x='40' y='40' width='880' height='520' rx='18' fill='%23E7D7C1'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='28' fill='%231C1C1C'>Rua Itaguaré, 85 — Diadema/SP</text></svg>">
+      </figure>
+    </div>
+  </section>
+
+  <!-- D10 CONTATO (rotas) -->
+  <section id="contato" class="section section--alt">
+    <div class="container">
+      <h2>Contato &amp; horários</h2>
+      <div class="grid-3">
+        <div class="card"><h3>WhatsApp</h3><p><a id="zapContato" class="btn btn--primary" target="_blank" rel="noopener">Abrir conversa</a></p></div>
+        <div class="card"><h3>Telefone</h3><p><a id="telLink" class="btn btn--ghost" href="#">Ligar</a></p></div>
+        <div class="card"><h3>Atendimento</h3><p>Seg–Sáb, 9h–19h (ajustar)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- D11 BLOG / GUIA -->
+  <section id="blog" class="section">
+    <div class="container">
+      <h2>Guia rápido</h2>
+      <div class="grid-3">
+        <article class="card"><h3>Checklist pré-limpeza de pele</h3><p>O que evitar e como preparar a pele.</p><a href="#" class="btn btn--ghost">Ler</a></article>
+        <article class="card"><h3>Coloração que respeita seu subtom</h3><p>Diagnóstico certo para brilho e durabilidade.</p><a href="#" class="btn btn--ghost">Ler</a></article>
+        <article class="card"><h3>Manutenção de sobrancelhas</h3><p>Ferramentas e intervalos ideais.</p><a href="#" class="btn btn--ghost">Ler</a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- D12 CTA FINAL -->
+  <section id="cta-final" class="section section--alt">
+    <div class="container" style="text-align:center">
+      <h2>Beleza que respeita sua essência. Protocolos que elevam seu melhor.</h2>
+      <p class="lead">Vamos começar do jeito certo?</p>
+      <p><a id="zapFinal" class="btn btn--primary btn--xl" target="_blank" rel="noopener">Agendar agora</a></p>
+    </div>
+  </section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="container cols">
+    <div>
+      <strong>Casarão da Beleza &amp; Saúde</strong>
+      <p>R. Itaguaré, 85 — Centro, Diadema/SP — 09910-360</p>
+      <p>Seg–Sáb, 9h–19h (ajustar)</p>
+    </div>
+    <div>
+      <p><a href="https://www.instagram.com/casaraodabelezaesaude/" target="_blank" rel="noopener">Instagram</a></p>
+      <p><a id="zapFooter" target="_blank" rel="noopener">WhatsApp</a></p>
+    </div>
+    <div>
+      <p>© <span id="year"></span> Casarão. Todos os direitos reservados.</p>
+      <small class="disclaimer">Imagens ilustrativas até substituição por acervo real.</small>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<div class="float-zap">
+  <a id="zapFloat" class="btn btn--primary" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">💬 WhatsApp</a>
+</div>
+
+<!-- JSON-LD: BeautySalon + FAQ -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"BeautySalon",
+  "name":"Casarão da Beleza & Saúde",
+  "image":"https://example.com/og.jpg",
+  "address":{"@type":"PostalAddress","streetAddress":"R. Itaguaré, 85","addressLocality":"Diadema","addressRegion":"SP","postalCode":"09910-360","addressCountry":"BR"},
+  "telephone":"+55 11 99999-9999",
+  "url":"https://example.com",
+  "sameAs":["https://www.instagram.com/casaraodabelezaesaude/"],
+  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"19:00"}],
+  "areaServed":"Diadema",
+  "priceRange":"$$"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"Preciso de avaliação?","acceptedAnswer":{"@type":"Answer","text":"Sim — é a base do nosso tratamento exclusivo."}},
+    {"@type":"Question","name":"Formas de pagamento?","acceptedAnswer":{"@type":"Answer","text":"Cartão, Pix e parcelamento em serviços selecionados."}},
+    {"@type":"Question","name":"Onde ficam?","acceptedAnswer":{"@type":"Answer","text":"R. Itaguaré, 85 — Centro, Diadema/SP."}}
+  ]
+}
+</script>
+
+<script>
+/* =========================
+   CONFIG RÁPIDA
+   ========================= */
+const WHATSAPP_NUMBER = "+5511999999999"; // TODO: substitua pelo número real (formato +55DDDNXXXXX)
+const ADDRESS_Q = encodeURIComponent("R. Itaguaré, 85 — Centro, Diadema/SP — 09910-360");
+const UTM = "utm_source=site&utm_medium=cta&utm_campaign=home";
+const wa = (msg="Olá! Vim pelo site e quero agendar uma avaliação.") =>
+  `https://wa.me/${WHATSAPP_NUMBER.replace(/\\D/g,"")}?text=${encodeURIComponent(msg)}&${UTM}`;
+
+/* Preenche todos os CTAs de WhatsApp */
+[
+  ["zapTop", wa()],
+  ["zapHero", wa("Quero falar sobre serviços e horários.")],
+  ["zapExclusivo", wa("Quero minha avaliação (Tratamento Exclusivo).")],
+  ["zapOferta", wa("Agendar avaliação sem custo.")],
+  ["zapFAQ", wa("Tenho uma dúvida.")],
+  ["zapOnde", wa("Estou vendo o mapa, pode me orientar?")],
+  ["zapContato", wa()],
+  ["zapFooter", wa()],
+  ["zapFloat", wa()],
+  ["zapFinal", wa("Agendar agora.")]
+].forEach(([id,href]) => { const a = document.getElementById(id); if(a) a.href = href; });
+
+/* Telefone (usa mesmo número do WhatsApp por padrão) */
+const tel = document.getElementById("telLink");
+if(tel){ tel.href = "tel:"+WHATSAPP_NUMBER.replace(/\\D/g,""); tel.textContent = "Ligar"; }
+
+/* Maps */
+const maps = document.getElementById("mapsLink");
+if(maps){ maps.href = `https://www.google.com/maps/search/?api=1&query=${ADDRESS_Q}`; }
+
+/* Ano do rodapé */
+document.getElementById("year").textContent = new Date().getFullYear();
+
+/* Menu mobile */
+(function(){
+  const btn = document.querySelector(".burger");
+  const menu = document.getElementById("menu");
+  if(!btn||!menu) return;
+  btn.addEventListener("click", ()=>{
+    const open = menu.classList.toggle("open");
+    btn.setAttribute("aria-expanded", String(open));
+  });
+})();
+
+/* Lightbox */
+(function(){
+  const dlg = document.getElementById("lightbox");
+  const img = document.getElementById("lightboxImg");
+  if(!dlg||!img) return;
+  const close = ()=> dlg.close ? dlg.close() : dlg.removeAttribute("open");
+  dlg.addEventListener("click", e=>{ if(e.target===dlg) close(); });
+  window.addEventListener("keydown", e=>{ if(e.key==="Escape"&&(dlg.open||dlg.hasAttribute("open"))) close(); });
+  const x = dlg.querySelector(".lb-close"); if(x) x.addEventListener("click", close);
+  document.querySelectorAll(".thumb").forEach(b=>{
+    b.addEventListener("click", ()=>{
+      img.src = b.dataset.full; img.alt = b.querySelector("img")?.alt || "";
+      if(typeof dlg.showModal==="function") dlg.showModal(); else dlg.setAttribute("open","");
+    });
+  });
+})();
+
+/* Antes/Depois slider clipping */
+(function(){
+  const range = document.getElementById("baRange");
+  const afterWrap = document.getElementById("baAfterWrap");
+  if(!range || !afterWrap) return;
+  const apply = v => afterWrap.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
+  range.addEventListener("input", e => apply(e.target.value));
+  apply(range.value);
+})();
+</script>
+</body>
+</html>
