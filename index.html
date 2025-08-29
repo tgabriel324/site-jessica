@@ -1,146 +1,528 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jessica Vital Makeup</title>
+  <meta charset="utf-8">
+  <title>Jessica Vital Makeup — Maquiagem Profissional | Noivas, Madrinhas e Eventos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Maquiagem profissional com assinatura autoral. Especialista em noivas, madrinhas e produções para eventos. Reserve seu horário pelo WhatsApp.">
+  <meta name="theme-color" content="#0e0d10">
+  <meta property="og:title" content="Jessica Vital Makeup — Maquiagem Profissional">
+  <meta property="og:description" content="Assinatura autoral, acabamento de pele impecável e durabilidade real. Agende pelo WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop">
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <style>
-    :root {
-      --bg: #fdf8f5;
-      --gold: #c39c7f;
-      --text: #000000;
-      --accent: #f4e3db;
-      --font-title: 'Playfair Display', serif;
-      --font-body: 'Montserrat', sans-serif;
+    /* ========== DESIGN SYSTEM (edite só estas variáveis) ========== */
+    :root{
+      --bg:#0e0d10;              /* Fundo geral (dark elegante) */
+      --panel:#141318;           /* Painéis/cards */
+      --elev:#1b1922;            /* Elevação sutil */
+      --txt:#f4f3f6;             /* Texto principal */
+      --muted:#b9b6c6;           /* Texto secundário */
+      --primary:#e9a6d1;         /* Rosa acetinado (beleza) */
+      --accent:#c6ffb3;          /* Verde-luz para micro realces */
+      --gold:#f7e6b5;            /* Dourado discreto p/ detalhes de luxo */
+      --stroke:#2a2731;          /* Bordas */
+      --ok:#9ff5c8; --warn:#ffe3a3; --error:#ffb3b3;
+      --radius:14px; --pill:999px;
+      --shadow:0 10px 30px rgba(0,0,0,.45);
+      --container:1200px;
+      --gap:28px;
+      --h1:clamp(40px, 6vw, 64px);
+      --h2:clamp(28px, 4vw, 40px);
+      --h3:clamp(20px, 2.5vw, 26px);
+      --p:clamp(16px, 1.6vw, 18px);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --serif: "Playfair Display", ui-serif, Georgia, serif;
+      --sans: ui-sans-serif, -apple-system, "Segoe UI", Roboto, Inter, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
     }
-    body {
-      margin: 0;
-      background: var(--bg);
-      font-family: var(--font-body);
-      color: var(--text);
+
+    /* Reset elegante */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:var(--sans); color:var(--txt); background:radial-gradient(1200px 800px at 10% -20%, #1c1822 0%, transparent 60%), var(--bg);
+      line-height:1.6; -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
-    h1, h2, h3 {
-      font-family: var(--font-title);
+    img{max-width:100%; display:block; border-radius: calc(var(--radius) - 4px)}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:var(--container); margin-inline:auto; padding:0 20px}
+    section{padding:70px 0; position:relative}
+    .section-title{font-size:var(--h2); margin:0 0 10px; letter-spacing:.2px}
+    .section-sub{color:var(--muted); margin:0 0 28px; max-width:760px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; background:rgba(14,13,16,.6); backdrop-filter: blur(12px);
+      border-bottom:1px solid var(--stroke); transition: .3s ease;
     }
-    section {
-      padding: 80px 20px;
-      max-width: 1200px;
-      margin: auto;
+    .nav{display:flex; align-items:center; gap:20px; height:64px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{
+      width:36px; height:36px; border-radius:10px; display:grid; place-items:center;
+      background: conic-gradient(from 210deg, var(--primary), #fff0, var(--gold));
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
     }
-    .hero {
-      background: url('https://via.placeholder.com/1200x700') center/cover;
-      color: white;
-      text-align: center;
-      padding: 150px 20px;
+    .brand small{color:var(--muted); display:block; font-size:12px; letter-spacing:.6px}
+    nav ul{list-style:none; margin:0; padding:0; display:flex; gap:16px; flex-wrap:wrap}
+    nav a{padding:10px 14px; border-radius:10px; border:1px solid transparent}
+    nav a:hover{border-color:var(--stroke); background:rgba(255,255,255,.03)}
+    .nav-cta{margin-left:auto; display:flex; gap:12px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:var(--pill);
+      border:1px solid var(--stroke); background:linear-gradient(180deg, #1c1a22, #131018); cursor:pointer; font-weight:600;
+      box-shadow:0 1px 0 rgba(255,255,255,.06) inset; transition:.2s ease;
     }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
+    .btn:hover{transform: translateY(-1px)}
+    .btn.primary{
+      border-color:rgba(255,255,255,.08);
+      background:
+        radial-gradient(600px 180px at 0% 0%, rgba(233,166,209,.14), transparent 60%),
+        linear-gradient(180deg, #2a2430, #19141e);
+      box-shadow: 0 8px 26px rgba(233,166,209,.18);
     }
-    .cta {
-      display: inline-block;
-      padding: 12px 30px;
-      background: var(--gold);
-      color: white;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
+    .badge{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px dashed var(--stroke); border-radius:var(--pill); color:var(--muted); font-size:13px}
+
+    /* Hero */
+    .hero{padding:96px 0 56px}
+    .grid{
+      display:grid; gap:var(--gap);
+      grid-template-columns: 1.1fr .9fr;
     }
-    .diferenciais {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 30px;
-      justify-content: center;
-      text-align: center;
+    .hero .title{font-size:var(--h1); line-height:1.1; margin:10px 0 14px; font-weight:800}
+    .hero .lead{font-size:clamp(18px, 1.8vw, 20px); color:var(--muted)}
+    .hero .media{
+      position:relative; min-height:420px; border-radius:var(--radius); overflow:hidden;
+      background:linear-gradient(120deg, #231d26, #151219); border:1px solid var(--stroke);
+      box-shadow: var(--shadow);
     }
-    .diferenciais div {
-      flex: 1 1 200px;
-      background: var(--accent);
-      padding: 20px;
-      border-radius: 8px;
+    .taglist{display:flex; flex-wrap:wrap; gap:10px; margin:18px 0 26px}
+    .tag{padding:8px 12px; border:1px solid var(--stroke); border-radius:var(--pill); color:#e8e6ef; font-size:13px; background:rgba(255,255,255,.02)}
+    .hero .floating{
+      position:absolute; right:-20px; bottom:-20px; width:220px; height:220px; border-radius:50%;
+      background: radial-gradient(60% 60% at 40% 40%, rgba(233,166,209,.35), rgba(233,166,209,.06));
+      filter: blur(16px);
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
+
+    /* Cards generics */
+    .cards{display:grid; gap:var(--gap); grid-template-columns: repeat(12, 1fr)}
+    .card{
+      grid-column: span 4; background:linear-gradient(180deg, #19161f, #14131a);
+      border:1px solid var(--stroke); border-radius:var(--radius); padding:20px; box-shadow: var(--shadow);
     }
-    .gallery img {
-      width: 100%;
-      border-radius: 8px;
+    .card h3{margin:6px 0 6px; font-size:var(--h3)}
+    .card p{color:var(--muted); margin:0}
+    .chip{display:inline-block; padding:6px 10px; border-radius:var(--pill); font-size:12px; border:1px solid var(--stroke); color:var(--muted)}
+
+    /* Portfolio grid */
+    .masonry{columns: 3 280px; column-gap:16px}
+    .masonry .item{break-inside:avoid; margin-bottom:16px; position:relative}
+    .masonry .item img{width:100%}
+    .zoom{position:absolute; right:10px; bottom:10px; background:rgba(0,0,0,.4); padding:8px 10px; border-radius:10px; font-size:12px}
+
+    /* Before/After slider card */
+    .ba{position:relative; overflow:hidden; border-radius:var(--radius); border:1px solid var(--stroke)}
+    .ba img{display:block; width:100%; height:auto}
+    .ba .after{position:absolute; inset:0; clip-path: inset(0 50% 0 0)}
+    .ba input[type="range"]{position:absolute; inset:0; width:100%; height:100%; opacity:0}
+    .ba .handle{position:absolute; top:0; bottom:0; width:3px; left:50%; transform:translateX(-50%); background:linear-gradient(var(--gold), #fff0); box-shadow:0 0 0 1px rgba(0,0,0,.3)}
+
+    /* Timeline process */
+    .timeline{display:grid; gap:18px}
+    .step{display:grid; grid-template-columns: 46px 1fr; gap:16px; align-items:flex-start}
+    .step .dot{width:46px; height:46px; border-radius:50%; display:grid; place-items:center; background:linear-gradient(180deg, #2b2630, #18141d); border:1px solid var(--stroke)}
+    .step p{margin:0; color:var(--muted)}
+
+    /* Testimonials carousel */
+    .carousel{display:grid; grid-auto-flow:column; grid-auto-columns:minmax(280px,1fr); gap:16px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:8px}
+    .carousel .t{scroll-snap-align:start; background:linear-gradient(180deg,#19161f,#131118); padding:20px; border:1px solid var(--stroke); border-radius:var(--radius)}
+    .stars{letter-spacing:2px; color:var(--gold)}
+
+    /* Pricing */
+    .pricing{display:grid; gap:var(--gap); grid-template-columns: repeat(12, 1fr)}
+    .plan{grid-column: span 4; background:linear-gradient(180deg,#1f1a24,#15131b); border:1px solid var(--stroke); border-radius:var(--radius); padding:22px}
+    .price{font-family:var(--serif); font-size:34px; margin:10px 0}
+    .plan ul{margin:0; padding-left:18px; color:var(--muted)}
+    .flag{display:inline-flex; gap:8px; align-items:center; font-size:12px; padding:6px 10px; border-radius:var(--pill); background:rgba(247,230,181,.08); border:1px solid rgba(247,230,181,.24); color:var(--gold)}
+
+    /* FAQ */
+    .faq{display:grid; gap:12px}
+    .qa{border:1px solid var(--stroke); border-radius:var(--radius); overflow:hidden}
+    .qa button{
+      width:100%; text-align:left; padding:16px 18px; background:linear-gradient(180deg,#1c1820,#15131b); color:var(--txt); border:0; font-weight:600; cursor:pointer;
     }
-    footer {
-      background: var(--gold);
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
+    .qa div{padding:0 18px 16px; color:var(--muted); display:none}
+    .qa.open div{display:block}
+
+    /* Contact */
+    .contact{
+      display:grid; gap:var(--gap);
+      grid-template-columns: 1.1fr .9fr;
     }
-    footer p {
-      font-style: italic;
+    form{
+      background:linear-gradient(180deg,#1d1821,#14121a); border:1px solid var(--stroke); border-radius:var(--radius); padding:18px; display:grid; gap:12px
+    }
+    label{font-size:13px; color:var(--muted)}
+    input,textarea,select{
+      width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--stroke); background:#0f0d13; color:var(--txt)
+    }
+    textarea{min-height:110px; resize:vertical}
+    .map{
+      height:100%; min-height:320px; border:1px dashed var(--stroke); border-radius:var(--radius); display:grid; place-items:center; color:var(--muted)
+    }
+
+    /* Footer */
+    footer{padding:34px 0; color:var(--muted); border-top:1px solid var(--stroke)}
+    .foot{display:flex; gap:20px; align-items:center; justify-content:space-between; flex-wrap:wrap}
+
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .pill{padding:6px 10px; border:1px solid var(--stroke); border-radius:var(--pill); color:var(--muted); font-size:12px}
+    .reveal{opacity:0; transform:translateY(8px); transition:.5s ease}
+    .reveal.visible{opacity:1; transform:none}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .grid, .contact{grid-template-columns:1fr}
+      .cards .card, .plan{grid-column: span 12}
+      .nav{height:auto; padding:10px 0}
+      .hero{padding-top:64px}
     }
   </style>
 </head>
 <body>
+  <!-- =========================================================
+       TODO: Ajuste os campos abaixo com dados reais da cliente
+       - NOME: "Jessica Vital" (ou variação preferida da marca)
+       - INSTAGRAM: @jessicavitalmakeup
+       - WHATSAPP: preencha "phone" no link wa.me (apenas dígitos)
+       - ENDEREÇO / CIDADE: caso atenda em estúdio e a domicílio
+       - FOTOS: substitua URLs de Unsplash por imagens reais
+       ========================================================= -->
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Sua beleza real, revelada com elegância</h1>
-    <a href="https://wa.me/message/7TGGYCDSMJHXG1" class="cta">Agende seu momento especial</a>
-  </section>
+  <!-- Header -->
+  <header id="topo">
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">✨</div>
+        <div>
+          <strong>Jessica&nbsp;Vital</strong>
+          <small>Makeup Artist</small>
+        </div>
+      </div>
+      <nav aria-label="Principal">
+        <ul class="row">
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#proposta">Assinatura</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#processo">Processo</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#precos">Preços</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+      <div class="nav-cta">
+        <a class="btn" href="https://www.instagram.com/jessicavitalmakeup" target="_blank" rel="noopener">Instagram</a>
+        <a class="btn primary" id="whatsHeader" href="#">Agendar no WhatsApp</a>
+      </div>
+    </div>
+  </header>
 
-  <!-- Sobre -->
-  <section>
-    <h2>Sobre Jessica</h2>
-    <p>Sou Jessica Vital, maquiadora em Diadema-SP, fundadora da JL Beauty Store, especialista em maquiagem para noivas e eventos. Realço a sua beleza com sensibilidade, técnica e carinho.</p>
-  </section>
-
-  <!-- Diferenciais -->
-  <section>
-    <h2>Diferenciais</h2>
-    <div class="diferenciais">
-      <div>🎨 Maquiagem Natural e Sofisticada</div>
-      <div>🤝 Atendimento Humanizado</div>
-      <div>📸 Look duradouro para eventos</div>
-      <div>👩‍🏫 Cursos com abordagem prática</div>
+  <!-- Hero (Seção 1) -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <span class="badge">Agenda limitada • acabamento de pele impecável</span>
+      <div class="grid">
+        <div class="copy">
+          <h1 class="title reveal">Beleza real, <em style="font-family:var(--serif); font-weight:700; color:var(--gold)">assinatura autoral</em>.</h1>
+          <p class="lead reveal">Maquiagem profissional para <strong>noivas</strong>, <strong>madrinhas</strong> e <strong>eventos</strong> — foco em pele luminosa, olhos que falam e durabilidade de horas.</p>
+          <div class="taglist reveal">
+            <span class="tag">Noivas 👰</span>
+            <span class="tag">Madrinhas 💐</span>
+            <span class="tag">Eventos ✨</span>
+            <span class="tag">Editorial 🎞️</span>
+            <span class="tag">A domicílio / Estúdio</span>
+          </div>
+          <div class="row reveal">
+            <a class="btn primary" id="whatsHero" href="#">Quero reservar</a>
+            <a class="btn" href="#portfolio">Ver portfólio</a>
+          </div>
+          <p class="muted" style="margin-top:12px">Atendimento sob consulta. Datas de noiva esgotam com antecedência.</p>
+        </div>
+        <div class="media reveal" aria-label="Galeria destaque">
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Maquiagem de noiva — pele luminosa e olhar marcante" style="width:100%; height:100%; object-fit:cover">
+          <div class="floating" aria-hidden="true"></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Portfólio -->
-  <section>
-    <h2>Galeria de Makes</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/400x400" alt="Make 1">
-      <img src="https://via.placeholder.com/400x400" alt="Make 2">
-      <img src="https://via.placeholder.com/400x400" alt="Make 3">
-      <img src="https://via.placeholder.com/400x400" alt="Make 4">
+  <!-- Assinatura / Proposta de Valor (Seção 2) -->
+  <section id="proposta">
+    <div class="container">
+      <h2 class="section-title reveal">O que te torna única não se copia.</h2>
+      <p class="section-sub reveal">Cada produção nasce de uma leitura sensível do seu rosto, estilo e ocasião. A assinatura da Jessica equilibra <strong>naturalidade</strong> com <strong>impacto</strong>: você, só que memorável.</p>
+      <div class="cards">
+        <article class="card reveal">
+          <span class="chip">Pele</span>
+          <h3>Acabamento impecável</h3>
+          <p>Textura leve, glow controlado e resistência a lágrimas, abraços e horas de pista.</p>
+        </article>
+        <article class="card reveal">
+          <span class="chip">Olhos</span>
+          <h3>Olhar que fala</h3>
+          <p>Do soft glam ao marcante — desenho respeita formato dos olhos e a identidade da cliente.</p>
+        </article>
+        <article class="card reveal">
+          <span class="chip">Durabilidade</span>
+          <h3>Pronta até o fim</h3>
+          <p>Técnica + produtos de alta performance para durar da cerimônia à última foto.</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- Feedback -->
-  <section>
-    <h2>Depoimentos</h2>
-    <p>"Não era só maquiagem: foi um reencontro comigo mesma." – Giovanna</p>
-    <p>"Jessica fez meu casamento ainda mais especial. Me senti linda e eu mesma." – Camila</p>
+  <!-- Portfólio (Seção 3) -->
+  <section id="portfolio">
+    <div class="container">
+      <h2 class="section-title reveal">Portfólio</h2>
+      <p class="section-sub reveal">Seleção curada de noivas, madrinhas e produções especiais.</p>
+      <div class="masonry">
+        <!-- TODO: troque por imagens reais -->
+        <a class="item reveal" href="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=1400&auto=format&fit=crop" data-full>
+          <img src="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=800&auto=format&fit=crop" alt="Maquiagem noiva 1">
+          <span class="zoom">Ampliar</span>
+        </a>
+        <a class="item reveal" href="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" data-full>
+          <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop" alt="Maquiagem noiva 2">
+          <span class="zoom">Ampliar</span>
+        </a>
+        <a class="item reveal" href="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" data-full>
+          <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800&auto=format&fit=crop" alt="Editorial 1">
+          <span class="zoom">Ampliar</span>
+        </a>
+        <!-- Adicione quantas quiser -->
+      </div>
+    </div>
   </section>
 
-  <!-- Noivas -->
-  <section>
-    <h2>Especial para Noivas</h2>
-    <p>O Dia da Noiva com Jessica é único. Cuido de cada detalhe: beleza, tempo, emoção. Agende uma conversa e descubra os bônus do seu pacote.</p>
+  <!-- Antes & Depois (Seção 4) -->
+  <section id="antesdepois">
+    <div class="container">
+      <h2 class="section-title reveal">Antes & Depois</h2>
+      <p class="section-sub reveal">Transparência de resultado — deslize para comparar.</p>
+      <div class="cards">
+        <div class="card reveal">
+          <div class="ba">
+            <!-- TODO: imagens reais antes/depois do mesmo rosto -->
+            <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="Depois">
+            <img class="after" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" alt="Antes">
+            <div class="handle" aria-hidden="true"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Controle de comparação">
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="ba">
+            <img src="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=1400&auto=format&fit=crop" alt="Depois">
+            <img class="after" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="Antes">
+            <div class="handle"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Controle de comparação">
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="ba">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1400&auto=format&fit=crop" alt="Depois">
+            <img class="after" src="https://images.unsplash.com/photo-1512203492609-8f0fa6f4a5d2?q=80&w=1400&auto=format&fit=crop" alt="Antes">
+            <div class="handle"></div>
+            <input type="range" min="0" max="100" value="50" aria-label="Controle de comparação">
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Cursos -->
-  <section>
-    <h2>Curso Arte de Embellezar</h2>
-    <p>Transforme sua relação com a maquiagem. Aprenda técnicas e desperte sua criatividade com um método acolhedor, direto com a Jessica.</p>
-    <a href="https://wa.me/message/7TGGYCDSMJHXG1" class="cta">Quero me inscrever</a>
+  <!-- Serviços (Seção 5) -->
+  <section id="servicos">
+    <div class="container">
+      <h2 class="section-title reveal">Serviços</h2>
+      <p class="section-sub reveal">Atendimento sob reserva — no estúdio ou a domicílio.</p>
+      <div class="cards">
+        <article class="card reveal">
+          <h3>Noiva — Prova + Dia</h3>
+          <p>Ensaio prévio, definição de look, teste de durabilidade e produção completa no grande dia.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Madrinhas & Convidadas</h3>
+          <p>Soft glam a glam completo, conforme horário, local e paleta do evento.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Editorial & Ensaios</h3>
+          <p>Criação autoral para fotos/filmes, direção de beleza e continuidade de cena.</p>
+        </article>
+      </div>
+      <div class="row" style="margin-top:16px">
+        <span class="pill">Airbrush (sob consulta)</span>
+        <span class="pill">Equipe para cabelo (sob consulta)</span>
+        <span class="pill">Atendimento em outras cidades</span>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>"Cada make é um lembrete: você é luz."</p>
-    <p>Jessica Vital • @jessicavitalmakeup</p>
-    <a href="https://www.instagram.com/jessicavitalmakeup" style="color: white;">Instagram</a>
-  </footer>
+  <!-- Diferenciais (Seção 6) -->
+  <section id="diferenciais">
+    <div class="container">
+      <h2 class="section-title reveal">Diferenciais</h2>
+      <div class="cards">
+        <article class="card reveal">
+          <h3>Leitura de rosto</h3>
+          <p>Análise de proporções, textura de pele e expressividade para um resultado que “é você”.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Curadoria de produtos</h3>
+          <p>Somente linhas de alta performance e hipoalergênicas quando necessário.</p>
+        </article>
+        <article class="card reveal">
+          <h3>Roteiro de agenda</h3>
+          <p>Planejamento por minuto no dia do evento para zero estresse e máxima pontualidade.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-</body>
-</html>
+  <!-- Processo (Seção 7) -->
+  <section id="processo">
+    <div class="container">
+      <h2 class="section-title reveal">Como funciona</h2>
+      <div class="timeline">
+        <div class="step reveal">
+          <div class="dot">1</div>
+          <div>
+            <h3>Brief rápido pelo WhatsApp</h3>
+            <p>Você envia data, local, referências e necessidades especiais.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="dot">2</div>
+          <div>
+            <h3>Proposta & reserva</h3>
+            <p>Confirmação de valores/horários e sinal para garantir a data.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="dot">3</div>
+          <div>
+            <h3>Prova (noivas)</h3>
+            <p>Testamos pele/olhos/batom, fotografamos em luz natural, fazemos ajustes.</p>
+          </div>
+        </div>
+        <div class="step reveal">
+          <div class="dot">4</div>
+          <div>
+            <h3>Grande dia</h3>
+            <p>Execução com tempo de respiro, entrega impecável e kit retoque.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos (Seção 8) -->
+  <section id="depoimentos">
+    <div class="container">
+      <h2 class="section-title reveal">O que falam</h2>
+      <div class="carousel">
+        <!-- TODO: substitua por depoimentos reais -->
+        <article class="t">
+          <div class="stars">★★★★★</div>
+          <p>“Chorei, abracei, dancei e a pele ficou perfeita até o fim. Nunca me senti tão eu.”</p>
+          <p class="muted">— L. Martins (noiva)</p>
+        </article>
+        <article class="t">
+          <div class="stars">★★★★★</div>
+          <p>“Pontual, gentil e extremamente técnica. Jessica entende de iluminação e foto.”</p>
+          <p class="muted">— A. Duarte (fotógrafa)</p>
+        </article>
+        <article class="t">
+          <div class="stars">★★★★★</div>
+          <p>“Soft glam que valorizou meu formato de rosto. Recebi mil elogios.”</p>
+          <p class="muted">— B. Souza (madrinha)</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Agenda / CTA intermédio (Seção 9) -->
+  <section id="agenda">
+    <div class="container">
+      <h2 class="section-title reveal">Quer sua data garantida?</h2>
+      <p class="section-sub reveal">Clique abaixo e envie sua data/local. Se estiver livre, já reservamos. Se não, indico alternativas.</p>
+      <div class="row">
+        <a class="btn primary" id="whatsAgenda" href="#">Verificar disponibilidade</a>
+        <a class="btn" href="#precos">Ver opções</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre (Seção 10) -->
+  <section id="sobre">
+    <div class="container">
+      <h2 class="section-title reveal">Sobre a artista</h2>
+      <div class="grid">
+        <div class="reveal">
+          <!-- TODO: foto real da profissional -->
+          <img src="https://images.unsplash.com/photo-1542596768-5d1d21f1cf98?q=80&w=1200&auto=format&fit=crop" alt="Jessica Vital — Makeup Artist">
+        </div>
+        <div class="reveal">
+          <p>Sou a <strong>Jessica</strong>, maquiadora com foco em realçar seu traço natural. Minha assinatura é pele de <em>acabamento impecável</em>, olhos que traduzem sua essência e escolhas que respeitam sua história e ocasião.</p>
+          <p class="muted">Atendo em estúdio e a domicílio. Em noivas, conduzo prova com fotografia em luz natural e roteiro de dia para garantia total.</p>
+          <div class="row">
+            <span class="pill">Pele glow controlado</span>
+            <span class="pill">Soft glam & clássico</span>
+            <span class="pill">Produtos hipoalergênicos</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Preços (Seção 11) -->
+  <section id="precos">
+    <div class="container">
+      <h2 class="section-title reveal">Planos & valores</h2>
+      <p class="section-sub reveal">Valores podem variar conforme deslocamento, horário e complexidade.</p>
+      <div class="pricing">
+        <article class="plan reveal">
+          <span class="flag">Mais requisitado</span>
+          <h3>Noiva Completo</h3>
+          <div class="price">R$ <span data-price="noiva">TODO</span></div>
+          <ul>
+            <li>Prova + registro em foto</li>
+            <li>Skin prep + maquiagem completa</li>
+            <li>Kit retoque e assistência</li>
+          </ul>
+          <div class="row" style="margin-top:12px">
+            <a class="btn primary" id="whatsNoiva" href="#">Quero esse</a>
+          </div>
+        </article>
+        <article class="plan reveal">
+          <h3>Madrinha</h3>
+          <div class="price">R$ <span data-price="madrinha">TODO</span></div>
+          <ul>
+            <li>Look personalizado (soft glam a glam)</li>
+            <li>Pele durável, olhos com técnica</li>
+          </ul>
+          <div class="row" style="margin-top:12px">
+            <a class="btn" id="whatsMadrinha" href="#">Reservar</a>
+          </div>
+        </article>
+        <article class="plan reveal">
+          <h3>Editorial / Ensaio</h3>
+          <div class="price">Sob consulta</div>
+          <ul>
+            <li>Direção de beleza</li>
+            <li>Suporte em set e continuidade</li>
+          </ul>
+          <div
