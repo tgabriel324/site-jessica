@@ -1,183 +1,636 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Espaço Flor — Beleza que floresce em cada detalhe</title>
-  <meta name="description" content="Cabelos, beleza e autoestima em Diadema. Coloração, hidratação, corte e luzes. Agende seu horário no WhatsApp.">
-
-  <!-- Fonte Google -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Espaço Flor — Beleza, Cabelos e Maquiagem</title>
+  <meta name="description" content="Salão de beleza especializado em cabelos, maquiagem e autoestima. Agende seu horário pelo WhatsApp." />
+  <meta name="theme-color" content="#111111" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Espaço Flor — Beleza, Cabelos e Maquiagem" />
+  <meta property="og:description" content="Cabelos, maquiagem e cuidados que viram confiança. Agende seu horário no WhatsApp." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://seu-dominio-aqui.com/" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1600&auto=format&fit=crop" />
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --cimento: #5A5A5A;
-      --cinza: #EAEAEA;
-      --dourado: #D4AF37;
-      --preto: #000000;
-      --font-titulo: 'Playfair Display', serif;
-      --font-corpo: 'Inter', sans-serif;
+    :root{
+      --bg:#ffffff;
+      --text:#111111;
+      --muted:#666B73;
+      --cement:#A8A29E;       /* cimento queimado */
+      --light:#F5F5F5;        /* cinza claro */
+      --gold:#C5A46D;         /* dourado escuro */
+      --dark:#111111;         /* preto profundo */
+      --accent:#d6b880;       /* dourado claro para hover */
+      --ok:#16a34a;           /* verde para estados ok */
+      --danger:#b91c1c;       /* vermelho para contraste/avisos */
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family: var(--font-corpo); background: var(--cinza); color: var(--cimento); line-height:1.6; scroll-behavior:smooth; }
-    h1,h2,h3,h4 { font-family: var(--font-titulo); color: var(--preto); }
-    section { padding: 4rem 1.5rem; max-width: 1200px; margin:auto; }
-    .hero { background: var(--cimento); color:white; text-align:center; padding:6rem 1.5rem; position:relative; overflow:hidden; }
-    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
-    .btn { display:inline-block; background: var(--dourado); color: var(--preto); padding:0.75rem 1.5rem; border-radius:8px; font-weight:bold; text-decoration:none; transition:transform 0.2s; }
-    .btn:hover { transform:scale(1.05); }
-    .grid { display:grid; gap:1.5rem; }
-    .grid-2 { grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
-    .grid-3 { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
-    .card { background:white; padding:1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; }
-    .card:hover { transform:translateY(-4px); }
-    footer { background: var(--preto); color:white; padding:2rem; text-align:center; }
-    footer a { color: var(--dourado); text-decoration:none; }
-    details { background:white; padding:1rem; border-radius:8px; margin-bottom:1rem; cursor:pointer; }
-    details summary { font-weight:bold; }
-    details[open] { border:2px solid var(--dourado); }
-    /* Botão flutuante WhatsApp */
-    .float-whats {
-      position:fixed; bottom:20px; right:20px;
-      background: var(--dourado); color:var(--preto);
-      padding:0.8rem 1rem; border-radius:50%;
-      font-size:1.5rem; text-decoration:none;
-      box-shadow:0 4px 12px rgba(0,0,0,0.25);
-      transition:transform 0.2s;
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1200px,92%);margin-inline:auto}
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:50;background:#fff;
+      border-bottom:1px solid #e9e9e9; backdrop-filter:saturate(180%) blur(6px)
     }
-    .float-whats:hover { transform:scale(1.1); }
-    /* Animações de fade */
-    .fade { opacity:0; transform:translateY(20px); transition:all 0.8s ease; }
-    .fade.visible { opacity:1; transform:translateY(0); }
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;}
+    .brand{display:flex;align-items:center;gap:.6rem}
+    .logo{
+      width:38px;height:38px;border-radius:50%;
+      background: radial-gradient(120% 120% at 30% 30%, var(--gold) 0%, #f0e6cd 45%, #e7d7b2 60%, var(--gold) 100%);
+      box-shadow:0 2px 10px rgba(0,0,0,.06);
+    }
+    .brand h1{font-family:"Playfair Display",serif;font-size:1.25rem;letter-spacing:.4px;margin:0}
+    nav ul{display:flex;gap:1.2rem;list-style:none;margin:0;padding:0;align-items:center}
+    .btn{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:var(--gold);color:#111;padding:.8rem 1rem;border-radius:.85rem;
+      font-weight:600;border:2px solid var(--gold);transition:.2s ease;line-height:1
+    }
+    .btn:hover{background:var(--accent);border-color:var(--accent);transform:translateY(-1px)}
+    .btn.outline{background:#fff;color:#111;border-color:#d8d8d8}
+    .btn.outline:hover{background:#f8f8f8}
+    .nav-links a{opacity:.9}
+    .nav-links a:hover{opacity:1}
+    /* Mobile */
+    .burger{display:none;flex-direction:column;gap:4px;border:0;background:transparent}
+    .burger span{width:24px;height:2px;background:#111;display:block}
+    @media (max-width: 960px){
+      nav ul.nav-links{display:none;position:absolute;inset:60px 0 auto 0;background:#fff;border-bottom:1px solid #eee;padding:1rem 4%}
+      nav ul.nav-links.open{display:grid;grid-template-columns:1fr;gap:1rem}
+      .burger{display:flex}
+    }
+
+    /* Hero */
+    .hero{
+      position:relative;isolation:isolate;overflow:hidden;
+      background:linear-gradient(180deg,#fff 0%, #fcfbf8 50%, #faf6ee 100%);
+    }
+    .hero-wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem;align-items:center;padding:clamp(3rem,7vw,6.5rem) 0}
+    .hero h2{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.1;margin:.2rem 0 .8rem}
+    .hero p{color:var(--muted);font-size:1.1rem;max-width:56ch}
+    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.2rem}
+    .hero-img{
+      border-radius:1.25rem;overflow:hidden;border:6px solid #fff;box-shadow:0 20px 60px rgba(0,0,0,.08)
+    }
+    .hero-img img{aspect-ratio:4/3;object-fit:cover}
+    .chip{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid #eee;border-radius:999px;padding:.45rem .75rem;font-size:.9rem;margin-bottom:1rem}
+    .chip svg{width:18px;height:18px}
+    @media (max-width: 980px){
+      .hero-wrap{grid-template-columns:1fr;gap:2rem}
+    }
+
+    /* Sections */
+    section{padding:clamp(2.8rem,6vw,5rem) 0}
+    .eyebrow{letter-spacing:.08em;text-transform:uppercase;font-weight:700;font-size:.8rem;color:#8c8c8c}
+    .title{font-family:"Playfair Display",serif;font-size:clamp(1.6rem,3.6vw,2.4rem);margin:.35rem 0 1rem}
+    .lead{color:var(--muted);max-width:68ch}
+
+    /* Serviços */
+    .grid{display:grid;gap:1.2rem}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media (max-width: 1000px){.grid.cols-4{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 680px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+    .card{
+      background:#fff;border:1px solid #eee;border-radius:1rem;padding:1.1rem;
+      transition:.2s ease;display:flex;flex-direction:column;gap:.8rem
+    }
+    .card:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.05)}
+    .card .cover{border-radius:.8rem;overflow:hidden}
+    .tag{display:inline-block;background:#f1efe8;color:#6b5e3e;padding:.25rem .6rem;border-radius:.6rem;font-size:.8rem;font-weight:600}
+
+    /* Portfólio com Lightbox */
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    @media (max-width: 880px){.gallery{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 560px){.gallery{grid-template-columns:1fr}}
+    .gallery img{border-radius:.8rem;cursor:pointer;object-fit:cover;height:100%;aspect-ratio:3/4;box-shadow:0 8px 20px rgba(0,0,0,.06)}
+    .lightbox{position:fixed;inset:0;background:rgba(17,17,17,.82);display:none;align-items:center;justify-content:center;z-index:70}
+    .lightbox.open{display:flex}
+    .lightbox img{max-width:min(92vw,1000px);max-height:86vh;border-radius:12px}
+    .lightbox .close{position:absolute;top:20px;right:20px;background:#fff;border:0;border-radius:10px;padding:.5rem .7rem;font-weight:700}
+
+    /* Depoimentos (slider simples) */
+    .slider{position:relative;overflow:hidden}
+    .slides{display:flex;transition:transform .5s ease;gap:1rem}
+    .testimonial{min-width:100%;background:#fff;border:1px solid #eee;border-radius:1rem;padding:1.2rem}
+    .slider-controls{display:flex;gap:.6rem;justify-content:center;margin-top:1rem}
+    .dot{width:9px;height:9px;border-radius:50%;background:#d8d6cf;cursor:pointer}
+    .dot.active{background:var(--gold)}
+
+    /* Vídeo modal */
+    .modal{position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;align-items:center;justify-content:center;z-index:80;padding:2rem}
+    .modal.open{display:flex}
+    .modal iframe{width:min(1000px,92vw);height:min(60vh,56vw);border:0;border-radius:12px}
+
+    /* Preços/Planos */
+    .price{display:flex;align-items:baseline;gap:.35rem}
+    .price .value{font-size:1.8rem;font-weight:800}
+    .price .per{color:#8a8a8a}
+
+    /* Diferenciais */
+    .feature{display:flex;gap:.9rem;align-items:flex-start}
+    .feature-icon{width:42px;height:42px;border-radius:10px;background:#f6f3ea;display:grid;place-items:center}
+
+    /* Blog */
+    .post{display:flex;flex-direction:column;gap:.5rem}
+    .post h4{margin:.2rem 0}
+
+    /* CTA Final */
+    .cta-final{
+      background:linear-gradient(135deg,#fcfbf8 0%, #f7f0d9 50%, #faf6ee 100%);
+      text-align:center;border:1px solid #efe9d6;border-left:0;border-right:0
+    }
+
+    /* Footer */
+    footer{background:var(--dark);color:#eee}
+    footer a{color:#eee;opacity:.92}
+    footer a:hover{opacity:1;text-decoration:underline}
+    .foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:1.2rem}
+    @media (max-width: 820px){.foot-grid{grid-template-columns:1fr}}
+
+    /* Bolha WhatsApp */
+    .wa-bubble{
+      position:fixed;right:18px;bottom:18px;z-index:90;
+      width:56px;height:56px;border-radius:50%;
+      background:linear-gradient(180deg,#25D366 0%, #1ebe57 100%);
+      box-shadow:0 12px 30px rgba(37,211,102,.35);
+      display:grid;place-items:center;border:2px solid #fff
+    }
+    .wa-bubble svg{width:26px;height:26px;fill:#fff}
+
+    /* Acessibilidade util */
+    .sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <h1>Espaço Flor</h1>
+      </div>
 
-  <!-- Hero -->
-  <header class="hero">
-    <h1>Beleza que floresce em cada detalhe</h1>
-    <p>Cabelos, beleza e autoestima — do seu jeito, sem padrões.</p>
-    <a href="https://wa.me/5511980736257" class="btn">Agende seu horário no WhatsApp</a>
-    <p style="margin-top:1rem;">📍 R. Manoel da Nóbrega 598, Sala 4, Diadema (SP)</p>
+      <button class="burger" id="burger" aria-label="Abrir menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav aria-label="Navegação principal">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#planos">Planos</a></li>
+          <li><a href="#contato" class="outline btn">Contato</a></li>
+        </ul>
+      </nav>
+
+      <a class="btn js-wa" data-text="Olá! Quero agendar um horário no Espaço Flor." href="#" aria-label="Agendar no WhatsApp">
+        <!-- ícone WA -->
+        <svg viewBox="0 0 32 32" width="18" height="18" aria-hidden="true"><path d="M19.11 17.32c-.29-.14-1.7-.83-1.96-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.9 1.1-.17.19-.33.21-.62.07-.29-.14-1.23-.45-2.35-1.45-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.12-.59.12-.12.29-.31.43-.48.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.11-.23-.56-.47-.48-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.96 2.43.05 1.43 1.02 2.82 1.16 3.01.14.19 2 3.05 4.86 4.28.68.29 1.2.46 1.61.59.68.22 1.29.19 1.78.12.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/><path d="M26.7 5.3C24.05 2.65 20.63 1.2 17 1.2 9.6 1.2 3.6 7.2 3.6 14.6c0 2.37.63 4.68 1.84 6.72L3 30.8l9.69-2.53c1.97 1.07 4.2 1.64 6.48 1.64 7.4 0 13.4-6 13.4-13.4 0-3.63-1.45-7.05-4.1-9.71zm-9.7 23.27c-2.1 0-4.16-.56-5.97-1.62l-.43-.26-5.76 1.5 1.54-5.61-.28-.46c-1.16-1.88-1.78-4.03-1.78-6.2C4.32 8 10.05 2.28 17 2.28c3.71 0 7.19 1.44 9.81 4.06s4.06 6.1 4.06 9.81c0 6.95-5.73 12.69-12.69 12.69z"/></svg>
+        <span>Agende no WhatsApp</span>
+      </a>
+    </div>
   </header>
 
-  <!-- Manifesto -->
-  <section class="fade">
-    <h2>Nossa essência</h2>
-    <p>No Espaço Flor, acreditamos que beleza não tem padrão. Cada fio, cada estilo, cada pessoa floresce de um jeito único.</p>
-    <div class="grid grid-3" style="margin-top:1.5rem;">
-      <div class="card"><h3>Cabelo</h3></div>
-      <div class="card"><h3>Beleza</h3></div>
-      <div class="card"><h3>Autoestima</h3></div>
+  <!-- HERO -->
+  <section class="hero" id="inicio" aria-label="Abertura">
+    <div class="container hero-wrap">
+      <div>
+        <span class="chip">
+          <!-- flor ícone -->
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="#C5A46D" d="M12 2c1.9 0 3.5 1.6 3.5 3.5S13.9 9 12 9s-3.5-1.6-3.5-3.5S10.1 2 12 2zm0 6a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM5.5 8C7.4 8 9 9.6 9 11.5S7.4 15 5.5 15 2 13.4 2 11.5 3.6 8 5.5 8zm0 6A2.5 2.5 0 118 11.5 2.5 2.5 0 015.5 14zM18.5 8C20.4 8 22 9.6 22 11.5S20.4 15 18.5 15 16 13.4 16 11.5 16.6 8 18.5 8zM12 15c1.9 0 3.5 1.6 3.5 3.5S13.9 22 12 22s-3.5-1.6-3.5-3.5S10.1 15 12 15z"/></svg>
+          Cabelos • Maquiagem • Autoestima
+        </span>
+        <h2>Transformamos beleza em <span style="color:var(--gold)">confiança</span> todos os dias.</h2>
+        <p>Do corte à maquiagem de noiva — experiências acolhedoras, técnicas atuais e resultados que duram o evento inteiro.</p>
+        <div class="hero-cta">
+          <a class="btn js-wa" data-text="Olá! Quero agendar um horário." href="#">Agende agora</a>
+          <a class="btn outline" href="#servicos">Ver serviços</a>
+        </div>
+      </div>
+      <div class="hero-img">
+        <img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=1600&auto=format&fit=crop" alt="Cliente recebendo maquiagem profissional no Espaço Flor" loading="eager">
+      </div>
     </div>
   </section>
 
-  <!-- Serviços -->
-  <section class="fade">
-    <h2>Nossos serviços</h2>
-    <div class="grid grid-2" style="margin-top:1.5rem;">
-      <div class="card"><h3>Coloração</h3><p>Cores que valorizam sua pele e estilo.</p></div>
-      <div class="card"><h3>Luzes</h3><p>Iluminação dos fios com proteção e brilho.</p></div>
-      <div class="card"><h3>Hidratação</h3><p>Tratamentos que devolvem maciez e força.</p></div>
-      <div class="card"><h3>Corte</h3><p>Geometria leve para o dia a dia.</p></div>
-    </div>
-    <p style="text-align:center; margin-top:1.5rem;">
-      <a href="https://wa.me/5511980736257" class="btn">Quero agendar meu horário</a>
-    </p>
-  </section>
-
-  <!-- Transformações -->
-  <section class="fade">
-    <h2>Antes & Depois</h2>
-    <p>Resultados reais, direto do nosso feed.</p>
-    <div class="grid grid-3" style="margin-top:1.5rem;">
-      <div class="card">[Foto Antes/Depois]</div>
-      <div class="card">[Foto Antes/Depois]</div>
-      <div class="card">[Foto Antes/Depois]</div>
+  <!-- 1) SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="eyebrow">Sobre nós</div>
+      <h3 class="title">Espaço Flor: beleza que acolhe, técnica que transforma.</h3>
+      <p class="lead">Nossa filosofia é simples: cada atendimento deve elevar sua autoestima. Profissionais especialistas em cabelos, maquiagem e cuidados, com ambiente aconchegante e foco em resultados naturais e elegantes.</p>
     </div>
   </section>
 
-  <!-- Depoimentos -->
-  <section class="fade">
-    <h2>O que dizem sobre nós</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem;">
-      <div class="card"><p>"Me senti acolhida de verdade. Saí com o cabelo lindo e leve."</p><strong>— Jéssica</strong></div>
-      <div class="card"><p>"Expliquei o que queria e eles traduziram em um corte perfeito."</p><strong>— Luana</strong></div>
-      <div class="card"><p>"Finalmente um salão que respeita meu estilo sem impor padrão."</p><strong>— Rafael</strong></div>
+  <!-- 2) SERVIÇOS -->
+  <section id="servicos" aria-labelledby="servicos-title" style="background:var(--light);border-top:1px solid #eee;border-bottom:1px solid #eee">
+    <div class="container">
+      <h3 class="title" id="servicos-title">Serviços</h3>
+      <div class="grid cols-4" style="margin-top:1rem">
+        <!-- Cabelos -->
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop" alt="Corte e coloração de cabelos femininos" loading="lazy"></div>
+          <div class="tag">Cabelos</div>
+          <h4>Corte, Coloração & Tratamentos</h4>
+          <p style="color:var(--muted)">Cortes atuais, colorações seguras e tratamentos que devolvem força e brilho.</p>
+          <a class="btn js-wa" data-text="Olá! Quero informações sobre corte/coloração." href="#">Agendar</a>
+        </article>
+        <!-- Maquiagem -->
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=1200&auto=format&fit=crop" alt="Maquiagem profissional para eventos e noivas" loading="lazy"></div>
+          <div class="tag">Maquiagem</div>
+          <h4>Social, Noivas & Editorial</h4>
+          <p style="color:var(--muted)">Técnica e bom gosto para realçar a sua beleza, do ensaio ao grande dia.</p>
+          <a class="btn js-wa" data-text="Olá! Quero agendar maquiagem." href="#">Agendar</a>
+        </article>
+        <!-- Unhas -->
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1616394584738-fc6e612c6bfc?q=80&w=1200&auto=format&fit=crop" alt="Manicure, pedicure e nail art" loading="lazy"></div>
+          <div class="tag">Unhas</div>
+          <h4>Manicure, Pedicure & Nail Art</h4>
+          <p style="color:var(--muted)">Acabamento impecável e durabilidade com técnicas modernas.</p>
+          <a class="btn js-wa" data-text="Olá! Quero marcar manicure/pedicure." href="#">Agendar</a>
+        </article>
+        <!-- Tratamentos -->
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop" alt="Tratamentos de spa capilar e estética facial" loading="lazy"></div>
+          <div class="tag">Tratamentos</div>
+          <h4>Spa Capilar & Estética Facial</h4>
+          <p style="color:var(--muted)">Protocolos que devolvem saúde aos fios e vitalidade à pele.</p>
+          <a class="btn js-wa" data-text="Olá! Quero saber mais sobre tratamentos." href="#">Agendar</a>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- Equipe -->
-  <section class="fade">
-    <h2>Nossa equipe</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem;">
-      <div class="card"><h3>Gustavo</h3><p>Colorista</p></div>
-      <div class="card"><h3>Marcos Paulo</h3><p>Cabeleireiro</p></div>
-      <div class="card"><h3>Angela</h3><p>Atendimento</p></div>
+  <!-- 3) PORTFÓLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="eyebrow">Portfólio</div>
+      <h3 class="title">Resultados que falam por si</h3>
+      <div class="gallery" id="gallery">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Antes e depois de coloração" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" alt="Penteado para evento" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?q=80&w=1200&auto=format&fit=crop" alt="Maquiagem iluminada" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1532714715337-23d856ea0a54?q=80&w=1200&auto=format&fit=crop" alt="Cachos definidos" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1495546968767-f0573cca821e?q=80&w=1200&auto=format&fit=crop" alt="Corte curto moderno" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?q=80&w=1200&auto=format&fit=crop" alt="Sombra esfumada" loading="lazy">
+      </div>
+    </div>
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+      <button class="close" id="lightboxClose" aria-label="Fechar">Fechar ✕</button>
+      <img id="lightboxImg" alt="Foto ampliada do portfólio">
     </div>
   </section>
 
-  <!-- Processo -->
-  <section class="fade">
-    <h2>Como funciona</h2>
-    <div class="grid grid-3" style="margin-top:1.5rem;">
-      <div class="card"><h3>1. Agendar</h3><p>Clique no WhatsApp e combine seu horário.</p></div>
-      <div class="card"><h3>2. Atendimento</h3><p>Escutamos você e propomos o melhor para seu fio.</p></div>
-      <div class="card"><h3>3. Transformação</h3><p>Você sai com autoestima elevada e cabelo renovado.</p></div>
+  <!-- 4) VÍDEO -->
+  <section id="video" style="background:var(--light);border-top:1px solid #eee;border-bottom:1px solid #eee">
+    <div class="container">
+      <div class="eyebrow">Vídeo</div>
+      <h3 class="title">Conheça nosso espaço</h3>
+      <p class="lead">Um olhar rápido pelos bastidores e pelo cuidado em cada detalhe.</p>
+      <p style="margin:1rem 0"><a href="#" class="btn outline" id="openVideo">Assistir vídeo</a></p>
+    </div>
+    <div class="modal" id="videoModal" aria-hidden="true" role="dialog">
+      <button class="close" id="videoClose" aria-label="Fechar" style="position:absolute;top:24px;right:24px;background:#fff;border:0;border-radius:10px;padding:.5rem .7rem;font-weight:700">Fechar ✕</button>
+      <!-- Substitua VIDEO_ID_AQUI pelo ID do YouTube da cliente -->
+      <iframe id="videoFrame" title="Vídeo Espaço Flor" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
     </div>
   </section>
 
-  <!-- Oferta especial -->
-  <section class="fade" style="background:var(--dourado); color:var(--preto); border-radius:12px;">
-    <h2>Pacotes sazonais</h2>
-    <p>Outubro Rosa — hidratação + corte solidário. Parte da renda destinada a iniciativas locais.</p>
-    <a href="https://wa.me/5511980736257" class="btn" style="background:var(--preto); color:white; margin-top:1rem;">Reservar agora</a>
-  </section>
-
-  <!-- Feed Instagram -->
-  <section class="fade">
-    <h2>Nosso dia a dia</h2>
-    <p>Acompanhe transformações e bastidores direto do nosso feed.</p>
-    <div class="card" style="margin-top:1.5rem; text-align:center;">
-      [Embed Instagram aqui]
+  <!-- 5) DEPOIMENTOS -->
+  <section id="depoimentos">
+    <div class="container">
+      <div class="eyebrow">Depoimentos</div>
+      <h3 class="title">O que nossas clientes dizem</h3>
+      <div class="slider" aria-roledescription="carrossel">
+        <div class="slides" id="slides">
+          <article class="testimonial">
+            <p style="font-style:italic">“Saí me sentindo a melhor versão de mim. A maquiagem durou a festa inteira!”</p>
+            <p><strong>— Júlia, noiva</strong></p>
+          </article>
+          <article class="testimonial">
+            <p style="font-style:italic">“O corte ficou impecável e super fácil de manter. Atendimento acolhedor!”</p>
+            <p><strong>— Camila, corte e escova</strong></p>
+          </article>
+          <article class="testimonial">
+            <p style="font-style:italic">“Me ajudaram a escolher a cor certa para minha pele. Amei o resultado!”</p>
+            <p><strong>— Rafaela, coloração</strong></p>
+          </article>
+        </div>
+        <div class="slider-controls">
+          <div class="dot active" data-i="0" aria-label="Ver depoimento 1"></div>
+          <div class="dot" data-i="1" aria-label="Ver depoimento 2"></div>
+          <div class="dot" data-i="2" aria-label="Ver depoimento 3"></div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="fade">
-    <h2>Perguntas frequentes</h2>
-    <details><summary>Quanto tempo dura cada procedimento?</summary><p>Depende do serviço, mas combinamos tudo antes.</p></details>
-    <details><summary>Vocês divulgam valores?</summary><p>Temos faixas de preço. No WhatsApp passamos orçamento.</p></details>
-    <details><summary>Como remarcar?</summary><p>É só avisar no WhatsApp. Sem estresse.</p></details>
+  <!-- 6) EQUIPE -->
+  <section id="equipe" style="background:var(--light);border-top:1px solid #eee;border-bottom:1px solid #eee">
+    <div class="container">
+      <div class="eyebrow">Equipe</div>
+      <h3 class="title">Profissionais que cuidam de você</h3>
+      <div class="grid cols-3" style="margin-top:1rem">
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?q=80&w=1200&auto=format&fit=crop" alt="Profissional de maquiagem"></div>
+          <h4>Lara</h4>
+          <p style="color:var(--muted)">Maquiadora • Noivas & Editorial</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1200&auto=format&fit=crop" alt="Profissional de cabelo"></div>
+          <h4>Marina</h4>
+          <p style="color:var(--muted)">Cabelereira • Corte & Color</p>
+        </article>
+        <article class="card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop" alt="Profissional de unhas"></div>
+          <h4>Priscila</h4>
+          <p style="color:var(--muted)">Nail Designer • Nail Art</p>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <!-- Contato -->
-  <section class="fade">
-    <h2>Onde estamos</h2>
-    <p>📍 R. Manoel da Nóbrega 598, Sala 4, Diadema (SP)</p>
-    <p>Horários: Ter-Sex 10h–20h · Sáb 9h–17h · Dom/Seg fechado</p>
-    <iframe src="https://www.google.com/maps?q=R.%20Manoel%20da%20Nóbrega%20598,%20Diadema&output=embed" width="100%" height="300" style="border:0; margin-top:1rem;" allowfullscreen></iframe>
+  <!-- 7) PLANOS E PACOTES -->
+  <section id="planos">
+    <div class="container">
+      <div class="eyebrow">Planos e Pacotes</div>
+      <h3 class="title">Escolha seu momento</h3>
+      <div class="grid cols-3" style="margin-top:1rem">
+        <article class="card">
+          <h4>Day Spa</h4>
+          <p class="price"><span class="value">R$ 249</span><span class="per">/ sessão</span></p>
+          <p style="color:var(--muted)">Hidratação capilar + escova + esmaltação.</p>
+          <a class="btn js-wa" data-text="Olá! Quero reservar o pacote Day Spa." href="#">Reservar</a>
+        </article>
+        <article class="card" style="border:2px solid var(--gold)">
+          <h4>Noiva Completa</h4>
+          <p class="price"><span class="value">R$ 1.790</span><span class="per">/ pacote</span></p>
+          <p style="color:var(--muted)">Prova + maquiagem + penteado + retoque no dia.</p>
+          <a class="btn js-wa" data-text="Olá! Quero saber detalhes do pacote Noiva Completa." href="#">Falar no WhatsApp</a>
+        </article>
+        <article class="card">
+          <h4>Transformação Capilar</h4>
+          <p class="price"><span class="value">R$ 499</span><span class="per">/ sessão</span></p>
+          <p style="color:var(--muted)">Corte + coloração + tratamento reconstrutor.</p>
+          <a class="btn js-wa" data-text="Olá! Quero transformação capilar." href="#">Agendar</a>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>“Beleza que floresce em cada detalhe — sem padrão, sem regra.”</p>
-    <p><a href="https://wa.me/5511980736257">Fale com a gente no WhatsApp</a></p>
-    <p style="margin-top:1rem; font-size:0.85rem;">© 2025 Espaço Flor. Todos os direitos reservados.</p>
+  <!-- 8) DIFERENCIAIS -->
+  <section id="diferenciais" style="background:var(--light);border-top:1px solid #eee;border-bottom:1px solid #eee">
+    <div class="container">
+      <div class="eyebrow">Por que escolher</div>
+      <h3 class="title">Cuidado que vira confiança</h3>
+      <div class="grid cols-3" style="margin-top:1rem">
+        <div class="feature">
+          <div class="feature-icon"><span aria-hidden="true">💛</span></div>
+          <div><strong>Acolhimento real</strong><br><span style="color:var(--muted)">Ambiente pensado para você relaxar e se curtir.</span></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><span aria-hidden="true">🎓</span></div>
+          <div><strong>Técnica atual</strong><br><span style="color:var(--muted)">Equipe em formação contínua e produtos seguros.</span></div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon"><span aria-hidden="true">⭐</span></div>
+          <div><strong>Resultados consistentes</strong><br><span style="color:var(--muted)">Acabamento profissional que dura seu evento.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9) BLOG / ARTIGOS -->
+  <section id="blog">
+    <div class="container">
+      <div class="eyebrow">Dicas</div>
+      <h3 class="title">Conteúdos rápidos</h3>
+      <div class="grid cols-3" style="margin-top:1rem">
+        <article class="post card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1582095133179-bfd08e2fc6b3?q=80&w=1200&auto=format&fit=crop" alt="Cuidados pós-progressiva"></div>
+          <h4>5 cuidados pós-progressiva</h4>
+          <p style="color:var(--muted)">O que fazer na primeira semana para manter o brilho.</p>
+          <a class="btn outline" href="#contato">Ler mais</a>
+        </article>
+        <article class="post card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1200&auto=format&fit=crop" alt="Make natural para o dia"></div>
+          <h4>Make natural para eventos de dia</h4>
+          <p style="color:var(--muted)">Truques de iluminação que funcionam na vida real.</p>
+          <a class="btn outline" href="#contato">Ler mais</a>
+        </article>
+        <article class="post card">
+          <div class="cover"><img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1200&auto=format&fit=crop" alt="Reconstrução capilar"></div>
+          <h4>Reconstrução capilar sem mistério</h4>
+          <p style="color:var(--muted)">Quando fazer e como manter em casa.</p>
+          <a class="btn outline" href="#contato">Ler mais</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10) LOCALIZAÇÃO -->
+  <section id="contato" style="background:var(--light);border-top:1px solid #eee;border-bottom:1px solid #eee">
+    <div class="container">
+      <div class="eyebrow">Localização</div>
+      <h3 class="title">Venha nos visitar</h3>
+      <p class="lead">Endereço: <span id="enderecoTexto">Endereço do Espaço Flor, Cidade — UF</span></p>
+      <!-- Substitua o src do iframe com o endereço real assim que tiver -->
+      <div style="border-radius:12px;overflow:hidden;border:1px solid #eaeaea">
+        <iframe
+          title="Mapa do Espaço Flor"
+          src=""
+          id="mapFrame"
+          width="100%" height="360" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11) CTA FINAL -->
+  <section class="cta-final">
+    <div class="container">
+      <h3 class="title">Pronta para sua transformação?</h3>
+      <p class="lead">Clique no botão abaixo e fale com a nossa equipe agora mesmo.</p>
+      <p><a class="btn js-wa" data-text="Olá! Quero agendar meu horário." href="#">Falar no WhatsApp</a></p>
+    </div>
+  </section>
+
+  <!-- 12) FOOTER -->
+  <footer role="contentinfo">
+    <div class="container" style="padding:2rem 0">
+      <div class="foot-grid">
+        <div>
+          <div class="brand" style="margin-bottom:.6rem">
+            <div class="logo" aria-hidden="true"></div>
+            <h2 style="font-family:'Playfair Display',serif;margin:0">Espaço Flor</h2>
+          </div>
+          <p style="color:#cfcfcf;max-width:60ch">Cabelos, maquiagem e cuidados que elevam sua autoestima. Acolhimento, técnica e resultados consistentes.</p>
+        </div>
+        <div>
+          <strong>Contato</strong><br>
+          <a class="js-wa" data-text="Olá! Vim pelo site e quero agendar." href="#">WhatsApp</a><br>
+          <a id="instaLink" href="#" target="_blank" rel="noopener">Instagram</a><br>
+          <span id="enderecoFooter">Endereço do Espaço Flor, Cidade — UF</span>
+        </div>
+        <div>
+          <strong>Links</strong><br>
+          <a href="#sobre">Sobre</a><br>
+          <a href="#servicos">Serviços</a><br>
+          <a href="#portfolio">Portfólio</a><br>
+          <a href="#depoimentos">Depoimentos</a>
+        </div>
+      </div>
+      <div style="margin-top:1.2rem;border-top:1px solid #2a2a2a;padding-top:1rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;color:#bdbdbd">
+        <span>© <span id="year"></span> Espaço Flor — Todos os direitos reservados.</span>
+        <a href="#" aria-label="Política de Privacidade">Política de Privacidade</a>
+      </div>
+    </div>
   </footer>
 
-  <!-- Botão flutuante -->
-  <a href="https://wa.me/5511980736257" class="float-whats">💬</a>
+  <!-- Bolha WhatsApp -->
+  <a class="wa-bubble js-wa" data-text="Olá! Quero agendar um horário." href="#" aria-label="Abrir conversa no WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.32c-.29-.14-1.7-.83-1.96-.92-.26-.1-.45-.14-.64.14-.19.29-.74.92-.9 1.1-.17.19-.33.21-.62.07-.29-.14-1.23-.45-2.35-1.45-.87-.78-1.46-1.74-1.63-2.03-.17-.29-.02-.45.12-.59.12-.12.29-.31.43-.48.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.5-.07-.14-.64-1.55-.88-2.11-.23-.56-.47-.48-.64-.48h-.55c-.19 0-.5.07-.76.36-.26.29-1 1-.96 2.43.05 1.43 1.02 2.82 1.16 3.01.14.19 2 3.05 4.86 4.28.68.29 1.2.46 1.61.59.68.22 1.29.19 1.78.12.54-.08 1.7-.69 1.94-1.36.24-.67.24-1.24.17-1.36-.07-.12-.26-.19-.55-.33z"/><path d="M26.7 5.3C24.05 2.65 20.63 1.2 17 1.2 9.6 1.2 3.6 7.2 3.6 14.6c0 2.37.63 4.68 1.84 6.72L3 30.8l9.69-2.53c1.97 1.07 4.2 1.64 6.48 1.64 7.4 0 13.4-6 13.4-13.4 0-3.63-1.45-7.05-4.1-9.71zm-9.7 23.27c-2.1 0-4.16-.56-5.97-1.62l-.43-.26-5.76 1.5 1.54-5.61-.28-.46c-1.16-1.88-1.78-4.03-1.78-6.2C4.32 8 10.05 2.28 17 2.28c3.71 0 7.19 1.44 9.81 4.06s4.06 6.1 4.06 9.81c0 6.95-5.73 12.69-12.69 12.69z"/></svg>
+    <span class="sr-only">WhatsApp</span>
+  </a>
+
+  <!-- JSON-LD LocalBusiness (ajuste depois com dados reais) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BeautySalon",
+    "name":"Espaço Flor",
+    "url":"https://seu-dominio-aqui.com/",
+    "telephone":"+55XXXXXXXXXX",
+    "address":{
+      "@type":"PostalAddress",
+      "streetAddress":"Endereço do Espaço Flor",
+      "addressLocality":"Cidade",
+      "addressRegion":"UF",
+      "addressCountry":"BR"
+    },
+    "sameAs":["https://www.instagram.com/espaco_flor_/"]
+  }
+  </script>
 
   <script>
-    // Animação de scroll (fade)
-    const faders = document.querySelectorAll('.fade');
-    const observer = new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{
-        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+    /* ======= CONFIGURAÇÕES RÁPIDAS (EDITE AQUI) ======= */
+    const WA_NUMBER = '55XXXXXXXXXX'; // <-- Substitua pelo número real com DDI/DDD, ex: 5511999999999
+    const BRAND_NAME = 'Espaço Flor';
+    const INSTAGRAM_HANDLE = 'espaco_flor_'; // sem @
+    const ENDERECO_COMPLETO = 'Endereço do Espaço Flor, Cidade — UF'; // altere depois
+    const MAPS_QUERY = encodeURIComponent(ENDERECO_COMPLETO); // será usado no iframe
+    const YOUTUBE_VIDEO_ID = 'VIDEO_ID_AQUI'; // substitua pelo ID real (ex: dQw4w9WgXcQ)
+    /* ================================================ */
+
+    // Util: gerar link do WhatsApp com mensagem
+    function makeWaLink(message){
+      const base = `https://wa.me/${WA_NUMBER}`;
+      const text = encodeURIComponent(message || 'Olá! Quero agendar um horário.');
+      return `${base}?text=${text}`;
+    }
+
+    // Popular links WhatsApp dinâmicos
+    document.querySelectorAll('.js-wa').forEach(el=>{
+      const msg = el.getAttribute('data-text') || 'Olá! Quero agendar um horário.';
+      el.setAttribute('href', makeWaLink(msg));
+      el.setAttribute('target','_blank');
+      el.setAttribute('rel','noopener');
+    });
+
+    // Mobile menu
+    const burger = document.getElementById('burger');
+    const navLinks = document.getElementById('navLinks');
+    burger?.addEventListener('click', ()=>{
+      navLinks.classList.toggle('open');
+      burger.setAttribute('aria-expanded', navLinks.classList.contains('open') ? 'true' : 'false');
+    });
+    // Fechar ao clicar em link (mobile)
+    navLinks?.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>navLinks.classList.remove('open')));
+
+    // Lightbox da galeria
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxClose = document.getElementById('lightboxClose');
+    document.getElementById('gallery')?.querySelectorAll('img').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        lightboxImg.src = img.src;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden','false');
       });
-    }, {threshold:0.2});
-    faders.forEach(f=>observer.observe(f));
+    });
+    lightboxClose?.addEventListener('click', ()=>{
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden','true');
+      lightboxImg.removeAttribute('src');
+    });
+    lightbox?.addEventListener('click', (e)=>{
+      if(e.target === lightbox){ lightboxClose.click(); }
+    });
+
+    // Slider simples (depoimentos)
+    const slidesWrap = document.getElementById('slides');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    let current = 0;
+    function go(i){
+      current = i;
+      slidesWrap.style.transform = `translateX(-${i*100}%)`;
+      dots.forEach(d=>d.classList.remove('active'));
+      dots[i]?.classList.add('active');
+    }
+    dots.forEach(d=>d.addEventListener('click', ()=>go(parseInt(d.dataset.i,10))));
+    setInterval(()=>go((current+1)%dots.length), 6000);
+
+    // Vídeo modal
+    const videoModal = document.getElementById('videoModal');
+    const openVideo = document.getElementById('openVideo');
+    const videoClose = document.getElementById('videoClose');
+    const videoFrame = document.getElementById('videoFrame');
+    openVideo?.addEventListener('click', (e)=>{
+      e.preventDefault();
+      if(!YOUTUBE_VIDEO_ID || YOUTUBE_VIDEO_ID === 'VIDEO_ID_AQUI'){
+        alert('Defina o YOUTUBE_VIDEO_ID nas configurações do script.');
+        return;
+      }
+      videoFrame.src = `https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&rel=0`;
+      videoModal.classList.add('open');
+      videoModal.setAttribute('aria-hidden','false');
+    });
+    videoClose?.addEventListener('click', ()=>{
+      videoModal.classList.remove('open');
+      videoModal.setAttribute('aria-hidden','true');
+      videoFrame.removeAttribute('src');
+    });
+    videoModal?.addEventListener('click', (e)=>{
+      if(e.target === videoModal){ videoClose.click(); }
+    });
+
+    // Endereço/Mapas/Instagram
+    document.getElementById('enderecoTexto').textContent = ENDERECO_COMPLETO;
+    document.getElementById('enderecoFooter').textContent = ENDERECO_COMPLETO;
+    const map = document.getElementById('mapFrame');
+    map.src = `https://www.google.com/maps?q=${MAPS_QUERY}&output=embed`;
+    const insta = document.getElementById('instaLink');
+    insta.href = `https://www.instagram.com/${INSTAGRAM_HANDLE}/`;
+    insta.textContent = '@' + INSTAGRAM_HANDLE;
+
+    // Ano no footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Acessibilidade: foco visível por teclado
+    document.body.addEventListener('keydown',(e)=>{
+      if(e.key === 'Tab'){ document.body.classList.add('show-focus'); }
+    });
   </script>
 </body>
 </html>
