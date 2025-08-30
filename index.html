@@ -1,519 +1,183 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Casarão da Beleza & Saúde — Diadema/SP | Liberte-se dos padrões, crie seu estilo</title>
-<meta name="description" content="Beleza e bem-estar com toque de casa. Cabelo, pele, corpo e unhas com atendimento atencioso e resultados reais em Diadema/SP. Agende sua avaliação no WhatsApp.">
-<meta name="color-scheme" content="light dark">
-<link rel="icon" type="image/svg+xml" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect rx="12" width="64" height="64" fill="%23B88F5C"/><text x="50%" y="56%" text-anchor="middle" font-family="serif" font-size="22" fill="white">CB</text></svg>'>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espaço Flor — Beleza que floresce em cada detalhe</title>
+  <meta name="description" content="Cabelos, beleza e autoestima em Diadema. Coloração, hidratação, corte e luzes. Agende seu horário no WhatsApp.">
 
-<!-- OG/Twitter básicos -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Casarão da Beleza & Saúde — Diadema/SP">
-<meta property="og:description" content="Liberte-se dos padrões, crie seu estilo. +10 mil atendimentos. Tratamento exclusivo.">
-<meta property="og:image" content="data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 width=%271200%27 height=%27630%27><rect width=%27100%25%27 height=%27100%25%27 fill=%27%23FAF7F2%27/><text x=%2750%25%27 y=%2755%25%27 text-anchor=%27middle%27 font-family=%27serif%27 font-size=%2746%27 fill=%27%231C1C1C%27>Casarão da Beleza &amp; Saúde</text></svg>'>
-<meta name="twitter:card" content="summary_large_image">
+  <!-- Fonte Google -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
-<style>
-/* ===================== */
-/* TOKENS (do JSON)      */
-/* ===================== */
-:root{
-  /* Brand scale */
-  --brand-50:#FAF7F2;--brand-100:#F3EADF;--brand-200:#E7D7C1;--brand-300:#D8C0A0;--brand-400:#C8A97F;
-  --brand-500:#B88F5C;--brand-600:#9A7443;--brand-700:#7B5C31;--brand-800:#5E4523;--brand-900:#3E2E16;
-
-  --ink:#1C1C1C; --ink-muted:#525252;
-  --cream:#FFF9F3; --accent:#36524C; --success:#0E9F6E;
-
-  --radius-sm:8px; --radius-md:16px; --radius-xl:24px; --radius-pill:999px;
-  --shadow-sm:0 2px 10px rgba(0,0,0,.06); --shadow-md:0 8px 30px rgba(0,0,0,.08); --glow:0 0 0 6px rgba(184,143,92,.15);
-  --g: clamp(1rem, 1vw + .5rem, 1.25rem); /* ritmo */
-  --container:1200px;
-  --bg:#FFFFFF; --bg-alt:#F3EADF22;
-}
-@media(prefers-color-scheme:dark){
-  :root{ --bg:#0F1011; --bg-alt:#141516; --ink:#F1F1F1; --ink-muted:#BEBEBE; --shadow-md:0 8px 30px rgba(0,0,0,.5) }
-}
-*{box-sizing:border-box} html,body{margin:0;padding:0}
-body{font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; text-rendering:optimizeLegibility}
-img{max-width:100%; height:auto; display:block}
-a{color:inherit}
-:focus-visible{outline:3px solid rgba(184,143,92,.5); outline-offset:2px}
-::selection{background:var(--brand-200); color:var(--ink)}
-.container{width:min(var(--container),92%); margin-inline:auto}
-
-/* Prova top bar */
-.proofbar{display:flex; justify-content:center; gap:var(--g); padding:8px 12px; background:var(--brand-50); border-bottom:1px solid rgba(0,0,0,.06)}
-.proofbar .dot{width:6px;height:6px;border-radius:999px;background:var(--brand-500);align-self:center}
-
-/* Header */
-.header{position:sticky; top:0; z-index:50; backdrop-filter: blur(8px); background:color-mix(in oklab, var(--bg) 92%, transparent); border-bottom:1px solid rgba(0,0,0,.06)}
-.header-inner{min-height:68px; display:flex; align-items:center; justify-content:space-between; gap:var(--g)}
-.brand{display:flex; align-items:center; gap:10px; text-decoration:none}
-.logo{width:40px;height:40px;border-radius:12px; background:var(--brand-500); color:#fff; display:grid;place-items:center; font-weight:700}
-.brandname{font-family:"Playfair Display", ui-serif, Georgia, serif; font-size:1.1rem}
-.nav ul{display:flex; gap:12px; list-style:none; margin:0; padding:0; align-items:center}
-.nav a{padding:8px 10px; text-decoration:none; border-radius:10px}
-.nav a:hover{background:rgba(0,0,0,.06)}
-.burger{display:none; border:1px solid rgba(0,0,0,.08); background:transparent; padding:8px 12px; border-radius:10px}
-.nav .cta{display:none}
-
-/* Buttons */
-.btn{display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:var(--radius-pill); text-decoration:none; border:1px solid rgba(0,0,0,.06); font-weight:600}
-.btn--primary{background:var(--brand-700); border-color:transparent; color:#fff}
-.btn--ghost{background:transparent}
-.btn--xl{padding:16px 22px; font-size:1.05rem}
-
-/* Sections */
-.section{padding:72px 0}
-.section--alt{background:var(--brand-50)}
-.eyebrow{text-transform:uppercase; letter-spacing:.12em; color:var(--brand-700); font-size:.8rem}
-h1,h2{font-family:"Playfair Display", ui-serif, Georgia, serif}
-h2{font-size: clamp(1.7rem, 1.1rem + 2vw, 2.4rem); margin:.2em 0}
-.lead{font-size:1.12rem; color:var(--ink-muted)}
-
-/* Hero */
-.hero{padding:40px 0 16px}
-.hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:28px; align-items:center}
-.badges{display:flex; gap:10px; flex-wrap:wrap; padding:0; margin:12px 0 0; list-style:none}
-.badges li{background:var(--brand-50); border:1px solid rgba(0,0,0,.06); padding:8px 12px; border-radius:999px}
-.hero-media{border-radius:var(--radius-xl); overflow:hidden; box-shadow:var(--shadow-md)}
-
-/* Cards & grids */
-.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:var(--g)}
-.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--g)}
-.grid-4{display:grid; grid-template-columns:repeat(4,1fr); gap:var(--g)}
-.card{border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-md); background:#fff; padding:16px; box-shadow:var(--shadow-sm)}
-.kpis{display:flex; gap:12px; margin-top:8px}
-.kpis span{background:#fff; border:1px solid rgba(0,0,0,.06); padding:6px 10px; border-radius:999px; font-weight:600}
-
-/* Before/After slider */
-.ba{position:relative; overflow:hidden; border-radius:var(--radius-xl); box-shadow:var(--shadow-sm); background:#000}
-.ba img{width:100%}
-.ba .after{position:absolute; inset:0; clip-path: inset(0 50% 0 0)}
-.ba input[type="range"]{position:absolute; inset-inline:0; bottom:12px; margin-inline:auto; width:min(480px,60%); appearance:none; height:4px; background:rgba(255,255,255,.7); border-radius:999px}
-.ba input[type="range"]::-webkit-slider-thumb{appearance:none; width:18px; height:18px; border-radius:999px; background:var(--brand-700); border:2px solid #fff; box-shadow:0 0 0 3px rgba(184,143,92,.25)}
-
-/* Before/After gallery */
-.gallery{list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(3,1fr); gap:10px}
-.thumb{padding:0;border:0;background:none;cursor:zoom-in}
-.thumb img{border-radius:var(--radius-md); border:1px solid rgba(0,0,0,.06); aspect-ratio:1/1; object-fit:cover}
-.disclaimer{color:var(--ink-muted); font-size:.9rem; margin-top:8px}
-
-/* Testimonials */
-.carousel{display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:6px}
-.carousel blockquote{scroll-snap-align:start; min-width:78%; margin:0; background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-md); padding:16px}
-.carousel footer{color:var(--ink-muted); margin-top:6px}
-
-/* FAQ */
-.faq details{background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-md); padding:12px; margin-bottom:10px}
-.faq summary{cursor:pointer; font-weight:600}
-
-/* Map / contato */
-.map{border:1px solid rgba(0,0,0,.06); border-radius:var(--radius-xl); overflow:hidden}
-
-/* Footer */
-.footer{border-top:1px solid rgba(0,0,0,.06); padding:28px 0; background:#fff}
-.footer .cols{display:grid; grid-template-columns:2fr 1fr 1fr; gap:var(--g)}
-
-/* Lightbox dialog */
-dialog#lightbox{border:0; padding:0; background:transparent}
-dialog::backdrop{background:rgba(0,0,0,.6)}
-#lightbox img{max-width:min(92vw,980px); max-height:85vh; border-radius:var(--radius-md)}
-.lb-close{position:fixed; top:18px; right:18px; border:0; width:44px; height:44px; border-radius:999px; background:rgba(0,0,0,.55); color:#fff; font-size:26px; cursor:pointer}
-
-/* Floating WhatsApp */
-.float-zap{position:fixed; right:16px; bottom:16px; z-index:60}
-.float-zap .btn{border-radius:999px}
-
-/* Responsive */
-@media(max-width:1024px){
-  .hero-grid{grid-template-columns:1fr}
-  .grid-3,.grid-4{grid-template-columns:1fr 1fr}
-}
-@media(max-width:760px){
-  .burger{display:inline-flex}
-  .nav ul{position:fixed; inset:68px 0 auto 0; background:var(--bg); padding:10px 4vw; transform:translateY(-120%); transition:transform .25s ease; flex-direction:column; align-items:flex-start; gap:8px; border-bottom:1px solid rgba(0,0,0,.06)}
-  .nav ul.open{transform:translateY(0)}
-  .nav .cta{display:flex; gap:8px}
-  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
-  .carousel blockquote{min-width:90%}
-}
-</style>
+  <style>
+    :root {
+      --cimento: #5A5A5A;
+      --cinza: #EAEAEA;
+      --dourado: #D4AF37;
+      --preto: #000000;
+      --font-titulo: 'Playfair Display', serif;
+      --font-corpo: 'Inter', sans-serif;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: var(--font-corpo); background: var(--cinza); color: var(--cimento); line-height:1.6; scroll-behavior:smooth; }
+    h1,h2,h3,h4 { font-family: var(--font-titulo); color: var(--preto); }
+    section { padding: 4rem 1.5rem; max-width: 1200px; margin:auto; }
+    .hero { background: var(--cimento); color:white; text-align:center; padding:6rem 1.5rem; position:relative; overflow:hidden; }
+    .hero h1 { font-size:2.5rem; margin-bottom:1rem; }
+    .btn { display:inline-block; background: var(--dourado); color: var(--preto); padding:0.75rem 1.5rem; border-radius:8px; font-weight:bold; text-decoration:none; transition:transform 0.2s; }
+    .btn:hover { transform:scale(1.05); }
+    .grid { display:grid; gap:1.5rem; }
+    .grid-2 { grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+    .grid-3 { grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); }
+    .card { background:white; padding:1.5rem; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition: transform 0.2s; }
+    .card:hover { transform:translateY(-4px); }
+    footer { background: var(--preto); color:white; padding:2rem; text-align:center; }
+    footer a { color: var(--dourado); text-decoration:none; }
+    details { background:white; padding:1rem; border-radius:8px; margin-bottom:1rem; cursor:pointer; }
+    details summary { font-weight:bold; }
+    details[open] { border:2px solid var(--dourado); }
+    /* Botão flutuante WhatsApp */
+    .float-whats {
+      position:fixed; bottom:20px; right:20px;
+      background: var(--dourado); color:var(--preto);
+      padding:0.8rem 1rem; border-radius:50%;
+      font-size:1.5rem; text-decoration:none;
+      box-shadow:0 4px 12px rgba(0,0,0,0.25);
+      transition:transform 0.2s;
+    }
+    .float-whats:hover { transform:scale(1.1); }
+    /* Animações de fade */
+    .fade { opacity:0; transform:translateY(20px); transition:all 0.8s ease; }
+    .fade.visible { opacity:1; transform:translateY(0); }
+  </style>
 </head>
 <body>
 
-<a href="#conteudo" class="sr-only" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">Pular para conteúdo</a>
+  <!-- Hero -->
+  <header class="hero">
+    <h1>Beleza que floresce em cada detalhe</h1>
+    <p>Cabelos, beleza e autoestima — do seu jeito, sem padrões.</p>
+    <a href="https://wa.me/5511980736257" class="btn">Agende seu horário no WhatsApp</a>
+    <p style="margin-top:1rem;">📍 R. Manoel da Nóbrega 598, Sala 4, Diadema (SP)</p>
+  </header>
 
-<!-- Prova superior -->
-<div class="proofbar">
-  <span>+10 mil atendimentos</span><span class="dot"></span>
-  <span>Tratamento exclusivo</span><span class="dot"></span>
-  <span>Referência em Diadema</span>
-</div>
-
-<!-- Header -->
-<header class="header" aria-label="Cabeçalho do site">
-  <div class="container header-inner">
-    <a href="#hero" class="brand">
-      <span class="logo" aria-hidden>CB</span>
-      <span class="brandname">Casarão da Beleza &amp; Saúde</span>
-    </a>
-    <nav class="nav" aria-label="Principal">
-      <button class="burger" aria-expanded="false" aria-controls="menu">Menu ☰</button>
-      <ul id="menu">
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#exclusivo">Exclusivo</a></li>
-        <li><a href="#provas">Provas</a></li>
-        <li><a href="#antes">Antes &amp; Depois</a></li>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li class="cta"><a id="zapTop" class="btn btn--primary" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">WhatsApp</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main id="conteudo">
-  <!-- D1 HERO -->
-  <section id="hero" class="hero">
-    <div class="container hero-grid">
-      <div>
-        <p class="eyebrow">R. Itaguaré, 85 — Centro, Diadema/SP</p>
-        <h1>Liberte-se dos padrões, crie seu estilo</h1>
-        <p class="lead">Beleza e bem-estar com toque de casa: do cabelo à pele, com atendimento atencioso e resultados reais.</p>
-        <p>
-          <a id="zapHero" class="btn btn--primary btn--xl" target="_blank" rel="noopener">Falar no WhatsApp</a>
-          <a href="#servicos" class="btn btn--ghost">Ver serviços</a>
-        </p>
-        <ul class="badges" aria-label="Diferenciais">
-          <li>Estilo próprio</li><li>Autoestima</li><li>Cuidado de verdade</li><li>Resultado</li>
-        </ul>
-      </div>
-      <figure class="hero-media">
-        <!-- Placeholder: troque por banner real (WEBP) -->
-        <img alt="Editorial clean de beleza acolhedora" loading="eager" decoding="async"
-          src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='1100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0%' stop-color='%23FFF9F3'/><stop offset='100%' stop-color='%23E7D7C1'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='40' fill='%231C1C1C'>Casarão da Beleza &amp; Saúde</text></svg>">
-      </figure>
+  <!-- Manifesto -->
+  <section class="fade">
+    <h2>Nossa essência</h2>
+    <p>No Espaço Flor, acreditamos que beleza não tem padrão. Cada fio, cada estilo, cada pessoa floresce de um jeito único.</p>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="card"><h3>Cabelo</h3></div>
+      <div class="card"><h3>Beleza</h3></div>
+      <div class="card"><h3>Autoestima</h3></div>
     </div>
   </section>
 
-  <!-- D2 VALOR (4 colunas) -->
-  <section id="servicos" class="section section--alt">
-    <div class="container">
-      <h2>Do cabelo à pele — tudo em um só lugar</h2>
-      <p class="lead">Cardápio em linguagem de resultado. Sem jargão.</p>
-      <div class="grid-4">
-        <article class="card">
-          <h3>Cabelo</h3>
-          <ul>
-            <li>Corte, cor e tratamento</li>
-            <li>Cronograma personalizado</li>
-            <li>Finalização com brilho</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Face</h3>
-          <ul>
-            <li>Limpeza de pele</li>
-            <li>Peelings e hidratações</li>
-            <li>Sobrancelhas e cílios</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Corpo</h3>
-          <ul>
-            <li>Criolipólise e modeladoras</li>
-            <li>Drenagem e bem-estar</li>
-            <li>Protocolos combinados</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Unhas</h3>
-          <ul>
-            <li>Manicure e pedicure</li>
-            <li>Spa das mãos e pés</li>
-            <li>Acabamento impecável</li>
-          </ul>
-        </article>
-      </div>
-      <div class="kpis"><span>+10k atendimentos</span><span>Equipe especializada</span><span>Protocolos responsáveis</span></div>
+  <!-- Serviços -->
+  <section class="fade">
+    <h2>Nossos serviços</h2>
+    <div class="grid grid-2" style="margin-top:1.5rem;">
+      <div class="card"><h3>Coloração</h3><p>Cores que valorizam sua pele e estilo.</p></div>
+      <div class="card"><h3>Luzes</h3><p>Iluminação dos fios com proteção e brilho.</p></div>
+      <div class="card"><h3>Hidratação</h3><p>Tratamentos que devolvem maciez e força.</p></div>
+      <div class="card"><h3>Corte</h3><p>Geometria leve para o dia a dia.</p></div>
+    </div>
+    <p style="text-align:center; margin-top:1.5rem;">
+      <a href="https://wa.me/5511980736257" class="btn">Quero agendar meu horário</a>
+    </p>
+  </section>
+
+  <!-- Transformações -->
+  <section class="fade">
+    <h2>Antes & Depois</h2>
+    <p>Resultados reais, direto do nosso feed.</p>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="card">[Foto Antes/Depois]</div>
+      <div class="card">[Foto Antes/Depois]</div>
+      <div class="card">[Foto Antes/Depois]</div>
     </div>
   </section>
 
-  <!-- D3 TRATAMENTO EXCLUSIVO (texto + slider) -->
-  <section id="exclusivo" class="section">
-    <div class="container grid-2">
-      <div>
-        <h2>Tratamento Exclusivo</h2>
-        <p class="lead">Avaliação atenciosa + combinação de técnicas para um plano só seu.</p>
-        <ul>
-          <li>Avaliação personalizada sem custo</li>
-          <li>Combinação segura de técnicas</li>
-          <li>Acompanhamento e manutenção</li>
-        </ul>
-        <p><a id="zapExclusivo" class="btn btn--primary" target="_blank" rel="noopener">Quero minha avaliação</a></p>
-      </div>
-      <div>
-        <!-- Slider Antes/Depois -->
-        <div class="ba" aria-label="Comparador antes e depois">
-          <img id="baBefore" alt="Antes — cabelo/pele" loading="lazy"
-               src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='640'><rect width='100%' height='100%' fill='%23E7D7C1'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='34' fill='%231C1C1C'>Antes</text></svg>">
-          <div id="baAfterWrap" class="after">
-            <img id="baAfter" alt="Depois — resultado natural" loading="lazy"
-                 src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='640'><rect width='100%' height='100%' fill='%23F3EADF'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='34' fill='%231C1C1C'>Depois</text></svg>">
-          </div>
-          <input id="baRange" type="range" min="0" max="100" value="50" aria-label="Deslize para comparar">
-        </div>
-        <div class="kpis" style="margin-top:10px"><span>Conforto primeiro</span><span>Ética profissional</span></div>
-      </div>
+  <!-- Depoimentos -->
+  <section class="fade">
+    <h2>O que dizem sobre nós</h2>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="card"><p>"Me senti acolhida de verdade. Saí com o cabelo lindo e leve."</p><strong>— Jéssica</strong></div>
+      <div class="card"><p>"Expliquei o que queria e eles traduziram em um corte perfeito."</p><strong>— Luana</strong></div>
+      <div class="card"><p>"Finalmente um salão que respeita meu estilo sem impor padrão."</p><strong>— Rafael</strong></div>
     </div>
   </section>
 
-  <!-- D4 PROVAS (bullets) -->
-  <section id="provas" class="section section--alt">
-    <div class="container grid-3">
-      <article class="card"><h3>+10 mil atendimentos</h3><p>Processos maduros e olhar humano.</p></article>
-      <article class="card"><h3>Profissionais especializados</h3><p>Cabelo, estética facial/corporal, unhas e bem-estar.</p></article>
-      <article class="card"><h3>Protocolos responsáveis</h3><p>Sem prometer o impossível. Resultado natural.</p></article>
+  <!-- Equipe -->
+  <section class="fade">
+    <h2>Nossa equipe</h2>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="card"><h3>Gustavo</h3><p>Colorista</p></div>
+      <div class="card"><h3>Marcos Paulo</h3><p>Cabeleireiro</p></div>
+      <div class="card"><h3>Angela</h3><p>Atendimento</p></div>
     </div>
   </section>
 
-  <!-- D5 ANTES & DEPOIS RESPONSÁVEL (grid + lightbox) -->
-  <section id="antes" class="section">
-    <div class="container">
-      <h2>Antes &amp; Depois — responsável</h2>
-      <p class="lead">Ângulos e luz consistentes. Autorização de imagem. Sem sensacionalismo.</p>
-      <ul class="gallery" role="list">
-        <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23E7D7C1'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='46' fill='%231C1C1C'>Pele</text></svg>"><img alt="Caso pele — viço e textura" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><rect width='100%' height='100%' fill='%23E7D7C1'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='24' fill='%231C1C1C'>Pele</text></svg>"></button></li>
-        <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23F3EADF'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='46' fill='%231C1C1C'>Cabelo</text></svg>"><img alt="Caso cabelo — cor e brilho" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><rect width='100%' height='100%' fill='%23F3EADF'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='24' fill='%231C1C1C'>Cabelo</text></svg>"></button></li>
-        <li><button class="thumb" data-full="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='1200'><rect width='100%' height='100%' fill='%23FAF7F2'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='46' fill='%231C1C1C'>Brows</text></svg>"><img alt="Caso sobrancelhas — harmonia" loading="lazy" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='420' height='420'><rect width='100%' height='100%' fill='%23FAF7F2'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='24' fill='%231C1C1C'>Brows</text></svg>"></button></li>
-      </ul>
-      <p class="disclaimer">Resultados variam conforme avaliação individual. Siga preparo e pós indicados.</p>
-      <dialog id="lightbox" aria-label="Visualização de imagem"><button class="lb-close" aria-label="Fechar">×</button><img id="lightboxImg" alt=""></dialog>
+  <!-- Processo -->
+  <section class="fade">
+    <h2>Como funciona</h2>
+    <div class="grid grid-3" style="margin-top:1.5rem;">
+      <div class="card"><h3>1. Agendar</h3><p>Clique no WhatsApp e combine seu horário.</p></div>
+      <div class="card"><h3>2. Atendimento</h3><p>Escutamos você e propomos o melhor para seu fio.</p></div>
+      <div class="card"><h3>3. Transformação</h3><p>Você sai com autoestima elevada e cabelo renovado.</p></div>
     </div>
   </section>
 
-  <!-- D6 OFERTA PRIMEIRA VISITA -->
-  <section id="oferta" class="section section--alt">
-    <div class="container grid-2">
-      <div class="card">
-        <h2>Agende sua avaliação sem custo</h2>
-        <p class="lead">Te ouvimos, indicamos e começamos do jeito certo.</p>
-        <p><a id="zapOferta" class="btn btn--primary btn--xl" target="_blank" rel="noopener">Chamar no WhatsApp</a></p>
-        <small class="disclaimer">Sem pressão. Só o que faz sentido para você.</small>
-      </div>
-      <figure class="card">
-        <img alt="Ambiente acolhedor do Casarão" loading="lazy"
-             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='640'><rect width='100%' height='100%' fill='%23D8C0A0'/><text x='50%' y='52%' text-anchor='middle' font-family='serif' font-size='34' fill='%231C1C1C'>Primeira Visita</text></svg>">
-      </figure>
+  <!-- Oferta especial -->
+  <section class="fade" style="background:var(--dourado); color:var(--preto); border-radius:12px;">
+    <h2>Pacotes sazonais</h2>
+    <p>Outubro Rosa — hidratação + corte solidário. Parte da renda destinada a iniciativas locais.</p>
+    <a href="https://wa.me/5511980736257" class="btn" style="background:var(--preto); color:white; margin-top:1rem;">Reservar agora</a>
+  </section>
+
+  <!-- Feed Instagram -->
+  <section class="fade">
+    <h2>Nosso dia a dia</h2>
+    <p>Acompanhe transformações e bastidores direto do nosso feed.</p>
+    <div class="card" style="margin-top:1.5rem; text-align:center;">
+      [Embed Instagram aqui]
     </div>
   </section>
 
-  <!-- D7 DEPOIMENTOS -->
-  <section id="depoimentos" class="section">
-    <div class="container">
-      <h2>O que as clientes dizem</h2>
-      <div class="carousel" aria-label="Depoimentos">
-        <blockquote>“Voltei a me reconhecer no espelho sem filtros.”<footer>— Ana M., 34</footer></blockquote>
-        <blockquote>“Cabelo com brilho natural, do jeitinho que eu queria.”<footer>— Camila P.</footer></blockquote>
-        <blockquote>“Avaliação honesta e resultado consistente.”<footer>— Renata S.</footer></blockquote>
-      </div>
-    </div>
+  <!-- FAQ -->
+  <section class="fade">
+    <h2>Perguntas frequentes</h2>
+    <details><summary>Quanto tempo dura cada procedimento?</summary><p>Depende do serviço, mas combinamos tudo antes.</p></details>
+    <details><summary>Vocês divulgam valores?</summary><p>Temos faixas de preço. No WhatsApp passamos orçamento.</p></details>
+    <details><summary>Como remarcar?</summary><p>É só avisar no WhatsApp. Sem estresse.</p></details>
   </section>
 
-  <!-- D8 FAQ (SEO local) -->
-  <section id="faq" class="section section--alt">
-    <div class="container">
-      <h2>FAQ</h2>
-      <div class="faq">
-        <details><summary>Preciso de avaliação?</summary><p>Sim — é a base do nosso tratamento exclusivo.</p></details>
-        <details><summary>Formas de pagamento?</summary><p>Cartão, Pix e parcelamento em serviços selecionados.</p></details>
-        <details><summary>Onde ficam?</summary><p>R. Itaguaré, 85 — Centro, Diadema/SP.</p></details>
-      </div>
-      <p><a id="zapFAQ" class="btn btn--primary" target="_blank" rel="noopener">Tirar dúvida no WhatsApp</a></p>
-    </div>
+  <!-- Contato -->
+  <section class="fade">
+    <h2>Onde estamos</h2>
+    <p>📍 R. Manoel da Nóbrega 598, Sala 4, Diadema (SP)</p>
+    <p>Horários: Ter-Sex 10h–20h · Sáb 9h–17h · Dom/Seg fechado</p>
+    <iframe src="https://www.google.com/maps?q=R.%20Manoel%20da%20Nóbrega%20598,%20Diadema&output=embed" width="100%" height="300" style="border:0; margin-top:1rem;" allowfullscreen></iframe>
   </section>
 
-  <!-- D9 ONDE ESTAMOS (mapa) -->
-  <section id="onde" class="section">
-    <div class="container grid-2">
-      <div>
-        <h2>Onde estamos</h2>
-        <p class="lead">R. Itaguaré, 85 — Centro, Diadema/SP — 09910-360</p>
-        <p>Estacionamento próximo • Acesso fácil</p>
-        <p>
-          <a id="mapsLink" class="btn btn--ghost" target="_blank" rel="noopener">Ver no mapa</a>
-          <a id="zapOnde" class="btn btn--primary" target="_blank" rel="noopener">Falar no WhatsApp</a>
-        </p>
-      </div>
-      <figure class="map">
-        <img alt="Mapa estático aproximado do endereço" loading="lazy"
-             src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='960' height='600'><rect width='100%' height='100%' fill='%23FAF7F2'/><rect x='40' y='40' width='880' height='520' rx='18' fill='%23E7D7C1'/><text x='50%' y='54%' text-anchor='middle' font-family='serif' font-size='28' fill='%231C1C1C'>Rua Itaguaré, 85 — Diadema/SP</text></svg>">
-      </figure>
-    </div>
-  </section>
+  <!-- Footer -->
+  <footer>
+    <p>“Beleza que floresce em cada detalhe — sem padrão, sem regra.”</p>
+    <p><a href="https://wa.me/5511980736257">Fale com a gente no WhatsApp</a></p>
+    <p style="margin-top:1rem; font-size:0.85rem;">© 2025 Espaço Flor. Todos os direitos reservados.</p>
+  </footer>
 
-  <!-- D10 CONTATO (rotas) -->
-  <section id="contato" class="section section--alt">
-    <div class="container">
-      <h2>Contato &amp; horários</h2>
-      <div class="grid-3">
-        <div class="card"><h3>WhatsApp</h3><p><a id="zapContato" class="btn btn--primary" target="_blank" rel="noopener">Abrir conversa</a></p></div>
-        <div class="card"><h3>Telefone</h3><p><a id="telLink" class="btn btn--ghost" href="#">Ligar</a></p></div>
-        <div class="card"><h3>Atendimento</h3><p>Seg–Sáb, 9h–19h (ajustar)</p></div>
-      </div>
-    </div>
-  </section>
+  <!-- Botão flutuante -->
+  <a href="https://wa.me/5511980736257" class="float-whats">💬</a>
 
-  <!-- D11 BLOG / GUIA -->
-  <section id="blog" class="section">
-    <div class="container">
-      <h2>Guia rápido</h2>
-      <div class="grid-3">
-        <article class="card"><h3>Checklist pré-limpeza de pele</h3><p>O que evitar e como preparar a pele.</p><a href="#" class="btn btn--ghost">Ler</a></article>
-        <article class="card"><h3>Coloração que respeita seu subtom</h3><p>Diagnóstico certo para brilho e durabilidade.</p><a href="#" class="btn btn--ghost">Ler</a></article>
-        <article class="card"><h3>Manutenção de sobrancelhas</h3><p>Ferramentas e intervalos ideais.</p><a href="#" class="btn btn--ghost">Ler</a></article>
-      </div>
-    </div>
-  </section>
-
-  <!-- D12 CTA FINAL -->
-  <section id="cta-final" class="section section--alt">
-    <div class="container" style="text-align:center">
-      <h2>Beleza que respeita sua essência. Protocolos que elevam seu melhor.</h2>
-      <p class="lead">Vamos começar do jeito certo?</p>
-      <p><a id="zapFinal" class="btn btn--primary btn--xl" target="_blank" rel="noopener">Agendar agora</a></p>
-    </div>
-  </section>
-</main>
-
-<!-- Footer -->
-<footer class="footer">
-  <div class="container cols">
-    <div>
-      <strong>Casarão da Beleza &amp; Saúde</strong>
-      <p>R. Itaguaré, 85 — Centro, Diadema/SP — 09910-360</p>
-      <p>Seg–Sáb, 9h–19h (ajustar)</p>
-    </div>
-    <div>
-      <p><a href="https://www.instagram.com/casaraodabelezaesaude/" target="_blank" rel="noopener">Instagram</a></p>
-      <p><a id="zapFooter" target="_blank" rel="noopener">WhatsApp</a></p>
-    </div>
-    <div>
-      <p>© <span id="year"></span> Casarão. Todos os direitos reservados.</p>
-      <small class="disclaimer">Imagens ilustrativas até substituição por acervo real.</small>
-    </div>
-  </div>
-</footer>
-
-<!-- Floating WhatsApp -->
-<div class="float-zap">
-  <a id="zapFloat" class="btn btn--primary" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">💬 WhatsApp</a>
-</div>
-
-<!-- JSON-LD: BeautySalon + FAQ -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BeautySalon",
-  "name":"Casarão da Beleza & Saúde",
-  "image":"https://example.com/og.jpg",
-  "address":{"@type":"PostalAddress","streetAddress":"R. Itaguaré, 85","addressLocality":"Diadema","addressRegion":"SP","postalCode":"09910-360","addressCountry":"BR"},
-  "telephone":"+55 11 99999-9999",
-  "url":"https://example.com",
-  "sameAs":["https://www.instagram.com/casaraodabelezaesaude/"],
-  "openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"09:00","closes":"19:00"}],
-  "areaServed":"Diadema",
-  "priceRange":"$$"
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"FAQPage",
-  "mainEntity":[
-    {"@type":"Question","name":"Preciso de avaliação?","acceptedAnswer":{"@type":"Answer","text":"Sim — é a base do nosso tratamento exclusivo."}},
-    {"@type":"Question","name":"Formas de pagamento?","acceptedAnswer":{"@type":"Answer","text":"Cartão, Pix e parcelamento em serviços selecionados."}},
-    {"@type":"Question","name":"Onde ficam?","acceptedAnswer":{"@type":"Answer","text":"R. Itaguaré, 85 — Centro, Diadema/SP."}}
-  ]
-}
-</script>
-
-<script>
-/* =========================
-   CONFIG RÁPIDA
-   ========================= */
-const WHATSAPP_NUMBER = "+5511999999999"; // TODO: substitua pelo número real (formato +55DDDNXXXXX)
-const ADDRESS_Q = encodeURIComponent("R. Itaguaré, 85 — Centro, Diadema/SP — 09910-360");
-const UTM = "utm_source=site&utm_medium=cta&utm_campaign=home";
-const wa = (msg="Olá! Vim pelo site e quero agendar uma avaliação.") =>
-  `https://wa.me/${WHATSAPP_NUMBER.replace(/\\D/g,"")}?text=${encodeURIComponent(msg)}&${UTM}`;
-
-/* Preenche todos os CTAs de WhatsApp */
-[
-  ["zapTop", wa()],
-  ["zapHero", wa("Quero falar sobre serviços e horários.")],
-  ["zapExclusivo", wa("Quero minha avaliação (Tratamento Exclusivo).")],
-  ["zapOferta", wa("Agendar avaliação sem custo.")],
-  ["zapFAQ", wa("Tenho uma dúvida.")],
-  ["zapOnde", wa("Estou vendo o mapa, pode me orientar?")],
-  ["zapContato", wa()],
-  ["zapFooter", wa()],
-  ["zapFloat", wa()],
-  ["zapFinal", wa("Agendar agora.")]
-].forEach(([id,href]) => { const a = document.getElementById(id); if(a) a.href = href; });
-
-/* Telefone (usa mesmo número do WhatsApp por padrão) */
-const tel = document.getElementById("telLink");
-if(tel){ tel.href = "tel:"+WHATSAPP_NUMBER.replace(/\\D/g,""); tel.textContent = "Ligar"; }
-
-/* Maps */
-const maps = document.getElementById("mapsLink");
-if(maps){ maps.href = `https://www.google.com/maps/search/?api=1&query=${ADDRESS_Q}`; }
-
-/* Ano do rodapé */
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* Menu mobile */
-(function(){
-  const btn = document.querySelector(".burger");
-  const menu = document.getElementById("menu");
-  if(!btn||!menu) return;
-  btn.addEventListener("click", ()=>{
-    const open = menu.classList.toggle("open");
-    btn.setAttribute("aria-expanded", String(open));
-  });
-})();
-
-/* Lightbox */
-(function(){
-  const dlg = document.getElementById("lightbox");
-  const img = document.getElementById("lightboxImg");
-  if(!dlg||!img) return;
-  const close = ()=> dlg.close ? dlg.close() : dlg.removeAttribute("open");
-  dlg.addEventListener("click", e=>{ if(e.target===dlg) close(); });
-  window.addEventListener("keydown", e=>{ if(e.key==="Escape"&&(dlg.open||dlg.hasAttribute("open"))) close(); });
-  const x = dlg.querySelector(".lb-close"); if(x) x.addEventListener("click", close);
-  document.querySelectorAll(".thumb").forEach(b=>{
-    b.addEventListener("click", ()=>{
-      img.src = b.dataset.full; img.alt = b.querySelector("img")?.alt || "";
-      if(typeof dlg.showModal==="function") dlg.showModal(); else dlg.setAttribute("open","");
-    });
-  });
-})();
-
-/* Antes/Depois slider clipping */
-(function(){
-  const range = document.getElementById("baRange");
-  const afterWrap = document.getElementById("baAfterWrap");
-  if(!range || !afterWrap) return;
-  const apply = v => afterWrap.style.clipPath = `inset(0 ${100 - v}% 0 0)`;
-  range.addEventListener("input", e => apply(e.target.value));
-  apply(range.value);
-})();
-</script>
+  <script>
+    // Animação de scroll (fade)
+    const faders = document.querySelectorAll('.fade');
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('visible'); }
+      });
+    }, {threshold:0.2});
+    faders.forEach(f=>observer.observe(f));
+  </script>
 </body>
 </html>
